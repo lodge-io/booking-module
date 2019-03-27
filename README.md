@@ -4,9 +4,9 @@
 
 ## Related Projects
 
-  - https://github.com/organization/lodge-io/image-gallery-module 
-  - https://github.com/organization/lodge-io/reviews-module
-  - https://github.com/organization/lodge-io/description-module
+  - https://github.com/lodge-io/image-gallery-module 
+  - https://github.com/lodge-io/reviews-module
+  - https://github.com/lodge-io/description-module
   
 ## Table of Contents
 
