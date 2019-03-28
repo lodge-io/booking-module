@@ -1,3 +1,5 @@
+let mongoose = require('mongoose');
+
 function odds(num) {
   return Math.random() < num;
 }
@@ -56,9 +58,9 @@ function genTaxArr(taxesRate = 0.8) {
   const taxNames = ['Accomodation Tax', 'Use Tax', 'Sales Tax', 'Hotel Tax', 'Bed Tax', 'Head Tax', 'Healthcare Tax'];
   const randFlatTax = name => ({ name, type: 'flat', amount: Math.ceil((Math.random() * 6) * (Math.random() * 6) * (Math.random() * 6)) });
   const randPercentTax = name => ({ name, type: 'percent', rate: parseFloat((Math.random() / 5).toFixed(4)) });
-  const taxConstructors = [randFlatTax, randPercentTax];
+  const taxConstructors = [ /*randFlatTax,*/ randPercentTax];
 
-  // myTaxes.push({ [randChoice(taxNames)]: randChoice(taxes)() });
+  myTaxes.push(randChoice(taxConstructors)(randChoice(taxNames)));
   while (odds(taxOdds)) {
     taxOdds /= 2;
     myTaxes.push(randChoice(taxConstructors)(randChoice(taxNames)));
@@ -78,7 +80,7 @@ function genSpecialArr(rareRate = 0.5) {
 }
 
 function getReviewStats() {
-  return { avgReview: randInt(20, 100) / 20, numReviews: randInt(1, randInt(2, 1000)) };
+  return { avgReview: randInt(10, 50) / 10, numReviews: randInt(1, randInt(2, 1000)) };
 }
 
 function getRandomPrice() {
@@ -118,9 +120,70 @@ function genBookingArr() {
     randomDateInc(date, 0, 2 * avgWait);
     avgWait *= 1 + ((date.getTime() - now.getTime()) / (YEAR_IN_MILLI * 4));
   }
-  // console.log(bookingArr.length);
   return bookingArr;
 }
+
+function genListing() {
+  const listing = {};
+  listing.requirements = genReqObj();
+  listing.fees = genFeeArray();
+  listing.taxes = genTaxArr();
+  listing.specials = genSpecialArr();
+  listing.reviews = getReviewStats();
+  listing.price = getRandomPrice();
+  listing.bookings = genBookingArr();
+  return listing;
+}
+
+
+mongoose.connect('mongodb://localhost/lodge-io', { useNewUrlParser: true });
+const db = mongoose.connection;
+
+const tax = new mongoose.Schema({
+  name: String,
+  type: String,
+  amount: Number,
+  rate: Number,
+});
+
+const requirement = new mongoose.Schema({
+  name: String,
+});
+
+const special = new mongoose.Schema({
+  type: String
+});
+
+const booking = new mongoose.Schema({
+  startDate: Date,
+  endDate: Date,
+  totalBookingCost: Number,
+  userId: String,
+  guests: {
+    adults: Number,
+    children: Number,
+    infants: Number,
+  },
+})
+
+const listingSchema = new mongoose.Schema({
+  fees: { 'Cleaning Fee': Number },
+  taxes: [tax],
+  requirements: [requirement],
+  specials: [special],
+  reviews: { avgReview: Number, numReviews: Number },
+  price: Number,
+  bookings: [booking],
+});
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('asdf');
+  const Listing = mongoose.model('listing', listingSchema);
+  const a1 = genListing();
+  const a2 = new Listing(a1);
+  a2.save();
+});
 
 module.exports = {
   odds,
@@ -133,4 +196,5 @@ module.exports = {
   getReviewStats,
   getRandomPrice,
   genBookingArr,
+  genListing,
 };
