@@ -1,0 +1,29 @@
+{
+  "name": "booking-module",
+  "version": "1.0.0",
+  "description": "A module for lodge.io to allow user to view available dates and book a valid stay.",
+  "main": " ",
+  "dependencies": {
+    "jest": "^24.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lodge-io/booking-module.git"
+  },
+  "author": "carl12",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lodge-io/booking-module/issues"
+  },
+  "homepage": "https://github.com/lodge-io/booking-module#readme"
+}
