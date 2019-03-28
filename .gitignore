@@ -23,3 +23,6 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
+
+# Code runner files
+*tempCodeRunnerFile.js
