@@ -10,30 +10,16 @@ const randChoice = function(arr) {
     return arr[randInt(0, arr.length)];
 }
 
-const creatReviewEntry = function (num) {
-    const goodness = Math.random();
-    // console.log(goodness)
-    const starAmount = 5;
-    reviewArr = [];
-    let amount;
-    for (var i = 0; i < num; i++) {
-        amount = Math.random() * starAmount;
-        amount = Math.floor(Math.min(5, amount * (0.5 / (1 - goodness))));
-        let review = { value: amount, name: 'Jona Doe' };
-        reviewArr.push(review);
-    }
-    return reviewArr;
-};
 
 const createReqArray = function (ruleRate = 0.4) {
     let myRules = {};
     const rules = ['maximum_guests', 'minimum_stay_length', 'maximum_stay_length'];
-    myRules[rules[0]] = Math.ceil(Math.random * 20);
+    myRules[rules[0]] = Math.ceil(Math.random() * 20);
     if (odds(ruleRate)) {
         myRules[rules[1]] = Math.ceil(Math.random() * 7);
     }
     if (odds(ruleRate)) {
-        myRules[rules[2]] = myRules[rules[1]] || 0 + Math.ceil(Math.random() * 20);
+        myRules[rules[2]] = (myRules[rules[1]] || 0) + Math.ceil(Math.random() * 20);
     }
     return myRules;
 };
@@ -76,10 +62,11 @@ const createSpecial = function(rareRate = 0.5) {
 }
 
 const getReviewStats = function() {
-    return {avgReview: randInt(0,10)/2, numReviews: randInt(1, randInt(2, 1000))}
+    return {avgReview: randInt(0,100)/20, numReviews: randInt(1, randInt(2, 1000))}
 }
 
 const getRandomPrice = function () {
     return Math.floor((Math.random() * 7 + 1) * (Math.random() * 7 + 1) * (Math.random() * 7 + 1) * (Math.random() * 7 + 1));
 }
 
+module.exports= {odds, randInt, randChoice, createReqArray, createFeeArray, createTaxes, createSpecial, getReviewStats, getRandomPrice};
