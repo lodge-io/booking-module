@@ -54,24 +54,22 @@ test('should output something special about the property sometimes', () => {
   for (let i = 0; i < 10; i += 1) {
     const special = gen.createSpecialArr();
     expect(special.length).toBeGreaterThanOrEqual(0);
-    special.forEach(specialCheck); 
+    special.forEach(specialCheck);
   }
 });
 
 test('should give a valid 5-star-based review average', () => {
   for (let i = 0; i < 10; i += 1) {
-    let stats = gen.getReviewStats()
-    expect(stats.avgReview).toBeGreaterThanOrEqual(1)
+    const stats = gen.getReviewStats();
+    expect(stats.avgReview).toBeGreaterThanOrEqual(1);
     expect(stats.avgReview).toBeLessThanOrEqual(5);
     expect(stats.numReviews).toBeGreaterThanOrEqual(1);
   }
 });
 
 test('should give a random price', () => {
-  for (let i = 0; i  < 10; i += 1) {
+  for (let i = 0; i < 10; i += 1) {
     const price = gen.getRandomPrice();
     expect(price).toBeGreaterThan(9);
   }
 });
-
-
