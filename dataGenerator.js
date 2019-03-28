@@ -14,7 +14,7 @@ function randChoice(arr) {
 function createReqObj(ruleRate = 0.4) {
   const myRules = {};
   const rules = ['maximum_guests', 'minimum_stay_length', 'maximum_stay_length'];
-  myRules[rules[0]] = Math.ceil(Math.random() * 20);
+  myRules[rules[0]] = Math.ceil(Math.random() * 30);
   if (odds(ruleRate)) {
     myRules[rules[1]] = Math.ceil(Math.random() * 7);
   }
@@ -26,31 +26,37 @@ function createReqObj(ruleRate = 0.4) {
 
 function createFeeArray(feeRate = 0.2) {
   const myFees = {};
-  myFees['Cleaning Fee'] = Math.floor((Math.random() * 7) * (Math.random() * 7) * (Math.random() * 7));
+  myFees['Cleaning Fee'] = Math.ceil((Math.random() * 7 + 1) * (Math.random() * 7 + 1) * (Math.random() * 7 + 1));
   const fees = ['Sheet flipping fee', 'Plant watering fee', 'Fee fee', 'Residency fee', 'Booking fee', 'Service fee'];
   let i = 0;
   while (odds(feeRate)) {
     i = randInt(i, fees.length);
-    myFees[fees[i]] = Math.floor((Math.random() * 7) * (Math.random() * 7) * (Math.random() * 7));
+    myFees[fees[i]] = Math.ceil(
+      (Math.random() * 7 + 1)
+      * (Math.random() * 7 + 1)
+      * (Math.random() * 7 + 1),
+    );
   }
   return myFees;
 }
 
-function createTaxes(taxesRate = 0.2) {
+function createTaxArr(taxesRate = 0.8) {
+  let taxOdds = taxesRate;
   const myTaxes = [];
   const taxNames = ['Accomodation Tax', 'Use Tax', 'Sales Tax', 'Hotel Tax', 'Bed Tax', 'Head Tax', 'Healthcare Tax'];
-  const randFlatTax = () => ({ type: 'flat', amount: Math.ceil((Math.random() * 6) * (Math.random() * 6) * (Math.random() * 6)) });
-  const randPercentTax = () => ({ type: 'percent', rate: (Math.random() / 5).toFixed(4) });
-  const taxes = [randFlatTax, randPercentTax];
+  const randFlatTax = name => ({ name, type: 'flat', amount: Math.ceil((Math.random() * 6) * (Math.random() * 6) * (Math.random() * 6)) });
+  const randPercentTax = name => ({ name, type: 'percent', rate: parseFloat((Math.random() / 5).toFixed(4)) });
+  const taxConstructors = [randFlatTax, randPercentTax];
 
-  myTaxes.push({ [randChoice(taxNames)]: randChoice(taxes)() });
-  while (odds(taxesRate)) {
-    myTaxes.push({ [randChoice(taxNames)]: randChoice(taxes)() });
+  // myTaxes.push({ [randChoice(taxNames)]: randChoice(taxes)() });
+  while (odds(taxOdds)) {
+    taxOdds /= 2;
+    myTaxes.push(randChoice(taxConstructors)(randChoice(taxNames)));
   }
   return myTaxes;
 }
 
-function createSpecial(rareRate = 0.5) {
+function createSpecialArr(rareRate = 0.5) {
   const mySpecials = [];
   let currRareRare = rareRate;
   const specials = ['Rare Find!', 'Super Host', 'New lower price!', 'On people\'s minds!'];
@@ -62,15 +68,16 @@ function createSpecial(rareRate = 0.5) {
 }
 
 function getReviewStats() {
-  return { avgReview: randInt(0, 100) / 20, numReviews: randInt(1, randInt(2, 1000)) };
+  return { avgReview: randInt(20, 100) / 20, numReviews: randInt(1, randInt(2, 1000)) };
 }
 
 function getRandomPrice() {
-  return Math.floor(
-    (Math.random() * 7 + 1)
-    * (Math.random() * 7 + 1)
-    * (Math.random() * 7 + 1)
-    * (Math.random() * 7 + 1),
+  return Math.ceil(
+    (Math.random() * 4 + 1)
+    * (Math.random() * 4 + 1)
+    * (Math.random() * 4 + 1)
+    * (Math.random() * 4 + 1)
+    * (Math.random() * 4 + 1) + 10,
   );
 }
 
@@ -80,8 +87,8 @@ module.exports = {
   randChoice,
   createReqObj,
   createFeeArray,
-  createTaxes,
-  createSpecial,
+  createTaxArr,
+  createSpecialArr,
   getReviewStats,
   getRandomPrice,
 };
