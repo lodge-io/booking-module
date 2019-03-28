@@ -9,11 +9,11 @@ test('should generate a random number in range excluding last val', () => {
   }
 });
 
-test('should create an object with valid requirements or nothing', () => {
+test('should gen an object with valid requirements or nothing', () => {
   let res;
   const checkRes = val => expect(res[val]).toBeGreaterThan(0);
   for (let i = 0; i < 20; i += 1) {
-    res = gen.createReqObj();
+    res = gen.genReqObj();
     expect([0, 1, 2, 3]).toContain(Object.keys(res).length);
     Object.keys(res).forEach(checkRes);
   }
@@ -26,13 +26,13 @@ test('should creat an array of fees', () => {
   let res;
   const feeChecker = key => expect(res[key]).toBeGreaterThan(0);
   for (let i = 0; i < 10; i += 1) {
-    res = gen.createFeeArray();
+    res = gen.genFeeArray();
     expect(Object.keys(res).length).toBeGreaterThan(0);
     Object.keys(res).forEach(feeChecker);
   }
 });
 
-test('should create taxes', () => {
+test('should gen taxes', () => {
   let taxes;
   const taxChecker = (tax) => {
     expect(['flat', 'percent']).toContain(tax.type);
@@ -43,7 +43,7 @@ test('should create taxes', () => {
     }
   };
   for (let i = 0; i < 10; i += 1) {
-    taxes = gen.createTaxArr();
+    taxes = gen.genTaxArr();
     expect(taxes.length).toBeGreaterThanOrEqual(0);
     taxes.forEach(taxChecker);
   }
@@ -52,7 +52,7 @@ test('should create taxes', () => {
 test('should output something special about the property sometimes', () => {
   const specialCheck = sp => expect(typeof sp.type).toBe('string');
   for (let i = 0; i < 10; i += 1) {
-    const special = gen.createSpecialArr();
+    const special = gen.genSpecialArr();
     expect(special.length).toBeGreaterThanOrEqual(0);
     special.forEach(specialCheck);
   }
@@ -71,5 +71,23 @@ test('should give a random price', () => {
   for (let i = 0; i < 10; i += 1) {
     const price = gen.getRandomPrice();
     expect(price).toBeGreaterThan(9);
+  }
+});
+
+test('should generate a random booking array', () => {
+  for (let i = 0; i < 10; i += 1) {
+    const bookings = gen.genBookingArr();
+    expect(bookings.length).toBeGreaterThanOrEqual(0);
+    bookings.forEach((book, index, bookArr) => {
+      if (index > 0) {
+        expect(book.startDate.getTime())
+          .toBeGreaterThanOrEqual(bookArr[index - 1].startDate.getTime());
+      }
+      expect(book.startDate.getTime()).toBeLessThan(book.endDate.getTime());
+      expect(book.totalBookingCost).toBeGreaterThanOrEqual(10);
+      expect(book.guests.adults).toBeGreaterThan(0);
+      expect(book.guests.children).toBeGreaterThanOrEqual(0);
+      expect(book.guests.infants).toBeGreaterThanOrEqual(0);
+    });
   }
 });

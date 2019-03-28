@@ -10,8 +10,18 @@ function randChoice(arr) {
   return arr[randInt(0, arr.length)];
 }
 
+function randomDateInc(date, lo, hi) {
+  date.setDate(date.getDate() + randInt(lo, hi));
+}
 
-function createReqObj(ruleRate = 0.4) {
+function genUserId() {
+  return new Array(15).fill(0).map(
+    () => randChoice(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']),
+  ).join('');
+}
+
+
+function genReqObj(ruleRate = 0.4) {
   const myRules = {};
   const rules = ['maximum_guests', 'minimum_stay_length', 'maximum_stay_length'];
   myRules[rules[0]] = Math.ceil(Math.random() * 30);
@@ -24,7 +34,7 @@ function createReqObj(ruleRate = 0.4) {
   return myRules;
 }
 
-function createFeeArray(feeRate = 0.2) {
+function genFeeArray(feeRate = 0.2) {
   const myFees = {};
   myFees['Cleaning Fee'] = Math.ceil((Math.random() * 7 + 1) * (Math.random() * 7 + 1) * (Math.random() * 7 + 1));
   const fees = ['Sheet flipping fee', 'Plant watering fee', 'Fee fee', 'Residency fee', 'Booking fee', 'Service fee'];
@@ -40,7 +50,7 @@ function createFeeArray(feeRate = 0.2) {
   return myFees;
 }
 
-function createTaxArr(taxesRate = 0.8) {
+function genTaxArr(taxesRate = 0.8) {
   let taxOdds = taxesRate;
   const myTaxes = [];
   const taxNames = ['Accomodation Tax', 'Use Tax', 'Sales Tax', 'Hotel Tax', 'Bed Tax', 'Head Tax', 'Healthcare Tax'];
@@ -56,7 +66,7 @@ function createTaxArr(taxesRate = 0.8) {
   return myTaxes;
 }
 
-function createSpecialArr(rareRate = 0.5) {
+function genSpecialArr(rareRate = 0.5) {
   const mySpecials = [];
   let currRareRare = rareRate;
   const specials = ['Rare Find!', 'Super Host', 'New lower price!', 'On people\'s minds!'];
@@ -81,14 +91,46 @@ function getRandomPrice() {
   );
 }
 
+function genBookingArr() {
+  const populatrity = Math.random() * Math.random();
+  let avgWait = 1 / populatrity;
+  const now = new Date(Date.now());
+  const today = `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
+  const date = new Date(today);
+  randomDateInc(date, 0, 2 * avgWait);
+
+  const bookingArr = [];
+  let newBooking;
+  const YEAR_IN_MILLI = 3.154e+10;
+  while (date.getTime() - now.getTime() < 2 * YEAR_IN_MILLI) {
+    newBooking = {};
+    newBooking.startDate = new Date(date);
+    randomDateInc(date, 1, randInt(2, 10));
+    newBooking.endDate = new Date(date);
+    newBooking.totalBookingCost = 5 * (Math.random() + 0.5) * getRandomPrice();
+    newBooking.userId = genUserId();
+    newBooking.guests = {
+      adults: randInt(1, 4),
+      children: randInt(0, 4),
+      infants: randInt(0, 5),
+    };
+    bookingArr.push(newBooking);
+    randomDateInc(date, 0, 2 * avgWait);
+    avgWait *= 1 + ((date.getTime() - now.getTime()) / (YEAR_IN_MILLI * 4));
+  }
+  // console.log(bookingArr.length);
+  return bookingArr;
+}
+
 module.exports = {
   odds,
   randInt,
   randChoice,
-  createReqObj,
-  createFeeArray,
-  createTaxArr,
-  createSpecialArr,
+  genReqObj,
+  genFeeArray,
+  genTaxArr,
+  genSpecialArr,
   getReviewStats,
   getRandomPrice,
+  genBookingArr,
 };
