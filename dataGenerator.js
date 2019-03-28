@@ -45,7 +45,6 @@ function createTaxes(taxesRate = 0.2) {
 
   myTaxes.push({ [randChoice(taxNames)]: randChoice(taxes)() });
   while (odds(taxesRate)) {
-
     myTaxes.push({ [randChoice(taxNames)]: randChoice(taxes)() });
   }
   return myTaxes;
@@ -63,7 +62,7 @@ function createSpecial(rareRate = 0.5) {
 }
 
 function getReviewStats() {
-  return { avgReview: randInt(0, 100) / 20, numReviews: randInt(1, randInt(2, 1000)) }
+  return { avgReview: randInt(0, 100) / 20, numReviews: randInt(1, randInt(2, 1000)) };
 }
 
 function getRandomPrice() {
