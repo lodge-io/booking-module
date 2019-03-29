@@ -4,6 +4,7 @@
   "description": "A module for lodge.io to allow user to view available dates and book a valid stay.",
   "main": " ",
   "dependencies": {
+    "express": "^4.16.4",
     "jest": "^24.5.0",
     "mongoose": "^5.4.20",
     "react": "^16.8.6",
