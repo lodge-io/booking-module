@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import asdf from 'jest';
-import {shallow} from 'enzyme';
 
 console.log(asdf);
 console.log(shallow);

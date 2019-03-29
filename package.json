@@ -4,9 +4,11 @@
   "description": "A module for lodge.io to allow user to view available dates and book a valid stay.",
   "main": " ",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "jest": "^24.5.0",
     "mongoose": "^5.4.20",
+    "nodemon": "^1.18.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
@@ -27,7 +29,9 @@
     "webpack-cli": "^3.3.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "nodemon ./server/server.js",
+    "build": "webpack -d -w"
   },
   "repository": {
     "type": "git",
