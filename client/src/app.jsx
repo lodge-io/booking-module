@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import asdf from 'jest';
+import {shallow} from 'enzyme';
+
+console.log(asdf);
+console.log(shallow);
 
 class Asdf extends React.Component {
   constructor(props) {
@@ -17,3 +22,4 @@ class Asdf extends React.Component {
 
 ReactDOM.render(<Asdf/>, 
   document.querySelector('#app'));
+

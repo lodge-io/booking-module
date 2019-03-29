@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 function odds(num) {
   return Math.random() < num;
@@ -55,7 +55,7 @@ function genFeeArray(feeRate = 0.2) {
 function genTaxArr(taxesRate = 0.8) {
   let taxOdds = taxesRate;
   const myTaxes = [];
-  const taxNames = ['Accomodation Tax', 'Use Tax', 'Sales Tax', 'Hotel Tax', 'Bed Tax', 'Head Tax', 'Healthcare Tax', ''];
+  const taxNames = ['Accomodation Tax', 'Use Tax', 'Sales Tax', 'Hotel Tax', 'Bed Tax', 'Head Tax', 'Healthcare Tax'];
   const randFlatTax = name => ({ name, type: 'flat', amount: Math.ceil((Math.random() * 6) * (Math.random() * 6) * (Math.random() * 6)) });
   const randPercentTax = name => ({ name, type: 'percent', rate: parseFloat((Math.random() / 5).toFixed(4)) });
   const taxConstructors = [randFlatTax, randPercentTax];
@@ -135,42 +135,42 @@ function genListing() {
   return listing;
 }
 
-const tax = new mongoose.Schema({
-  name: String,
-  type: String,
-  amount: Number,
-  rate: Number,
-});
+// const tax = new mongoose.Schema({
+//   name: String,
+//   type: String,
+//   amount: Number,
+//   rate: Number,
+// });
 
-const requirement = new mongoose.Schema({
-  name: String,
-});
+// const requirement = new mongoose.Schema({
+//   name: String,
+// });
 
-const special = new mongoose.Schema({
-  type: String,
-});
+// const special = new mongoose.Schema({
+//   type: String,
+// });
 
-const booking = new mongoose.Schema({
-  startDate: Date,
-  endDate: Date,
-  totalBookingCost: Number,
-  userId: String,
-  guests: {
-    adults: Number,
-    children: Number,
-    infants: Number,
-  },
-});
+// const booking = new mongoose.Schema({
+//   startDate: Date,
+//   endDate: Date,
+//   totalBookingCost: Number,
+//   userId: String,
+//   guests: {
+//     adults: Number,
+//     children: Number,
+//     infants: Number,
+//   },
+// });
 
-const listingSchema = new mongoose.Schema({
-  fees: { 'Cleaning Fee': Number },
-  taxes: [tax],
-  requirements: [requirement],
-  specials: [special],
-  reviews: { avgReview: Number, numReviews: Number },
-  price: Number,
-  bookings: [booking],
-});
+// const listingSchema = new mongoose.Schema({
+//   fees: { 'Cleaning Fee': Number },
+//   taxes: [tax],
+//   requirements: [requirement],
+//   specials: [special],
+//   reviews: { avgReview: Number, numReviews: Number },
+//   price: Number,
+//   bookings: [booking],
+// });
 
 // mongoose.connect('mongodb://localhost/lodge-io', { useNewUrlParser: true });
 // const db = mongoose.connection;
@@ -181,8 +181,8 @@ const listingSchema = new mongoose.Schema({
 //   const a1 = genListing();
 //   // const a2 = new Listing(a1);
 //   // a2.save();
+//   // db.close();
 // });
-// db.close();
 
 module.exports = {
   odds,
