@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const gen = require('./DataGenerator.js');
 const db = require('./DbManager.js');
 

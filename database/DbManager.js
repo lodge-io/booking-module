@@ -53,7 +53,15 @@ function loadListing(obj) {
   const a = new Listing(obj);
   a.save().catch(e => console.log(e)).then(c => console.log('success:\n', c));
 }
+function deleteListing(id) {
+  return Listing.remove({ _id: id }).then((a) => {
+    console.log(a);
+    return a;
+  });
+}
+
 
 module.exports.ListingModel = Listing;
 module.exports.readListing = readListing;
 module.exports.loadListing = loadListing;
+module.exports.deleteListing = deleteListing;
