@@ -30,7 +30,7 @@ app.delete('/listings/:listingId', (req, res) => {
 
 app.post('/listings', (req, res) => {
   console.log(req.body, ' is body');
-  db.loadListing(req.body).then((a) => {
+  db.createListing(req.body).then((a) => {
     console.log(a);
     res.end(a);
   });

@@ -121,8 +121,9 @@ function genBookingArr() {
   return bookingArr;
 }
 
-function genListing() {
+function genListing(id = 0) {
   const listing = {};
+  listing.id = id;
   listing.requirements = genReqObj();
   listing.fees = genFeeArray();
   listing.taxes = genTaxArr();

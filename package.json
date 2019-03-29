@@ -41,6 +41,10 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lodge-io/booking-module/issues"
+  },  
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true
   },
   "homepage": "https://github.com/lodge-io/booking-module#readme"
 }

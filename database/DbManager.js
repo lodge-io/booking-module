@@ -30,7 +30,8 @@ const booking = new mongoose.Schema({
 });
 
 const listingSchema = new mongoose.Schema({
-  fees: { 'Cleaning Fee': Number },
+  id: { type: Number, unique: true, required: true },
+  fees: {},
   taxes: [tax],
   requirements: [requirement],
   specials: [special],
@@ -42,26 +43,35 @@ const Listing = mongoose.model('listing', listingSchema);
 
 
 mongoose.connect('mongodb://localhost/lodge-io', { useNewUrlParser: true });
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {});
+const con = mongoose.connection;
+con.on('error', console.error.bind(console, 'connection error:'));
+con.once('open', () => {});
 
-function readListing(id) {
-  return Listing.findById(id);
+function readAll() {
+  return Listing.find();
 }
-function loadListing(obj) {
+function readListing(id) {
+  return Listing.find({ id }).then(res => res[0]);
+}
+function createListing(obj) {
   const a = new Listing(obj);
   a.save().catch(e => console.log(e)).then(c => console.log('success:\n', c));
 }
 function deleteListing(id) {
-  return Listing.remove({ _id: id }).then((a) => {
+  return Listing.deleteOne({ id }).then((a) => {
     console.log(a);
     return a;
   });
 }
 
+function clearListings() {
+  return con.db.dropCollection('listings');
+}
+
 
 module.exports.ListingModel = Listing;
 module.exports.readListing = readListing;
-module.exports.loadListing = loadListing;
+module.exports.createListing = createListing;
 module.exports.deleteListing = deleteListing;
+module.exports.readAll = readAll;
+module.exports.con = con;

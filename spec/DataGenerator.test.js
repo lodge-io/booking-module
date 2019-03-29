@@ -1,5 +1,8 @@
 const gen = require('../database/DataGenerator.js');
 
+describe('first thing', () => {
+
+});
 test('should generate a random number in range excluding last val', () => {
   for (let i = 0; i < 10; i += 1) {
     expect(gen.randInt(0, 1)).toBe(0);
