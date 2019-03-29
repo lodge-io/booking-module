@@ -6,7 +6,12 @@ class Asdf extends React.Component {
     super(props);
   }
   render(){
-    return <div>asdf</div>
+    return (
+      <div>
+        asdf
+        <div>asdf</div>
+      </div>
+    )
   }
 }
 

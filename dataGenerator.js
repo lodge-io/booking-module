@@ -1,4 +1,4 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 function odds(num) {
   return Math.random() < num;
@@ -55,10 +55,10 @@ function genFeeArray(feeRate = 0.2) {
 function genTaxArr(taxesRate = 0.8) {
   let taxOdds = taxesRate;
   const myTaxes = [];
-  const taxNames = ['Accomodation Tax', 'Use Tax', 'Sales Tax', 'Hotel Tax', 'Bed Tax', 'Head Tax', 'Healthcare Tax'];
+  const taxNames = ['Accomodation Tax', 'Use Tax', 'Sales Tax', 'Hotel Tax', 'Bed Tax', 'Head Tax', 'Healthcare Tax', ''];
   const randFlatTax = name => ({ name, type: 'flat', amount: Math.ceil((Math.random() * 6) * (Math.random() * 6) * (Math.random() * 6)) });
   const randPercentTax = name => ({ name, type: 'percent', rate: parseFloat((Math.random() / 5).toFixed(4)) });
-  const taxConstructors = [ /*randFlatTax,*/ randPercentTax];
+  const taxConstructors = [randFlatTax, randPercentTax];
 
   myTaxes.push(randChoice(taxConstructors)(randChoice(taxNames)));
   while (odds(taxOdds)) {
@@ -135,10 +135,6 @@ function genListing() {
   return listing;
 }
 
-
-mongoose.connect('mongodb://localhost/lodge-io', { useNewUrlParser: true });
-const db = mongoose.connection;
-
 const tax = new mongoose.Schema({
   name: String,
   type: String,
@@ -151,7 +147,7 @@ const requirement = new mongoose.Schema({
 });
 
 const special = new mongoose.Schema({
-  type: String
+  type: String,
 });
 
 const booking = new mongoose.Schema({
@@ -164,7 +160,7 @@ const booking = new mongoose.Schema({
     children: Number,
     infants: Number,
   },
-})
+});
 
 const listingSchema = new mongoose.Schema({
   fees: { 'Cleaning Fee': Number },
@@ -176,14 +172,17 @@ const listingSchema = new mongoose.Schema({
   bookings: [booking],
 });
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  console.log('asdf');
-  const Listing = mongoose.model('listing', listingSchema);
-  const a1 = genListing();
-  const a2 = new Listing(a1);
-  a2.save();
-});
+// mongoose.connect('mongodb://localhost/lodge-io', { useNewUrlParser: true });
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', () => {
+//   console.log('asdf');
+//   const Listing = mongoose.model('listing', listingSchema);
+//   const a1 = genListing();
+//   // const a2 = new Listing(a1);
+//   // a2.save();
+// });
+// db.close();
 
 module.exports = {
   odds,
