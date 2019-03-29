@@ -6,7 +6,6 @@
   "dependencies": {
     "jest": "^24.5.0",
     "mongoose": "^5.4.20",
-    "nyc": "^13.3.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
