@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const gen = require('./dataGenerator.js');
+const gen = require('./DataGenerator.js');
 
 const tax = new mongoose.Schema({
   name: String,
