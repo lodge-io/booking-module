@@ -1,4 +1,4 @@
-const gen = require('../dataGenerator.js');
+const gen = require('../database/dataGenerator.js');
 
 test('should generate a random number in range excluding last val', () => {
   for (let i = 0; i < 10; i += 1) {
