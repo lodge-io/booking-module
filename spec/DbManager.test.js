@@ -55,4 +55,4 @@ test('should delete a listing', () => {
     .then(val => expect(val).toBeFalsy());
 });
 
-// afterAll(() => manager.con.close());
+afterAll(() => manager.con.close());
