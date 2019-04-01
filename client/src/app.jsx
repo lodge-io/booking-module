@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-console.log(asdf);
-console.log(shallow);
 
 class Asdf extends React.Component {
   constructor(props) {
@@ -11,8 +9,8 @@ class Asdf extends React.Component {
   render(){
     return (
       <div>
-        asdf
-        <div>asdf</div>
+        rendered properly
+        <div>asdf2</div>
       </div>
     )
   }
