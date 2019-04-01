@@ -21,8 +21,8 @@ jobs: # a collection of steps
           paths:
             - ./node_modules
       - run:
-        name: run-mongod
-        command: sudo mongod service start
+          name: run-mongod
+          command: sudo mongod service start
       - run: # run tests
           name: test
           command: npm test
