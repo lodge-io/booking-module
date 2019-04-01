@@ -1,7 +1,15 @@
 const manager = require('../database/DbManager.js');
 const gen = require('../database/DataGenerator.js');
 
+beforeAll((next) => {
+  return manager.conPromse.then(() => {
+    console.log(next, 'invoked');
+    return manager.seedDatabase().then(() => next());
+  });
+});
+
 test('should load data from database', () => {
+  console.log('test 1 starting');
   expect.assertions(1);
   return manager.readAll().then(val => expect(val.length).toBeGreaterThan(0));
 });
@@ -47,3 +55,4 @@ test('should delete a listing', () => {
     .then(val => expect(val).toBeFalsy());
 });
 
+afterAll(() => manager.seedDatabase());

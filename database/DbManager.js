@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const gen = require('./DataGenerator.js');
 
 mongoose.Promise = global.Promise;
 
@@ -42,11 +43,11 @@ const listingSchema = new mongoose.Schema({
 const Listing = mongoose.model('listing', listingSchema);
 
 
-mongoose.connect('mongodb://localhost/lodge-io', { useNewUrlParser: true });
+const conPromise = mongoose.connect('mongodb://localhost/lodge-io', { useNewUrlParser: true })
+  .then(() => console.log('connected!'));
 const con = mongoose.connection;
 con.on('error', console.error.bind(console, 'connection error:'));
-con.once('open', () => {
-});
+
 
 function readAll() {
   return Listing.find();
@@ -64,7 +65,6 @@ function createMultiListing(arr) {
   arr.forEach(val => a.push(new Listing(val)));
   // console.log(arr[0]);
   return Listing.insertMany(a);
-
 }
 
 function deleteListing(id) {
@@ -76,6 +76,15 @@ function deleteListing(id) {
 function clearListings() {
   return con.db.dropCollection('listings');
 }
+function seedDatabase() {
+  return con.db.dropCollection('listings').then(() => {
+    const arr = [];
+    for (let i = 0; i < 100; i += 1) {
+      arr.push(gen.genListing(i));
+    }
+    return createMultiListing(arr);
+  });
+}
 
 
 module.exports.ListingModel = Listing;
@@ -84,4 +93,6 @@ module.exports.createListing = createListing;
 module.exports.deleteListing = deleteListing;
 module.exports.readAll = readAll;
 module.exports.createMultiListing = createMultiListing;
+module.exports.seedDatabase = seedDatabase;
+module.exports.conPromse = conPromise;
 module.exports.con = con;
