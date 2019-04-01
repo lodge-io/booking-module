@@ -44,7 +44,13 @@ const Listing = mongoose.model('listing', listingSchema);
 
 
 const conPromise = mongoose.connect('mongodb://localhost/lodge-io', { useNewUrlParser: true })
-  .then(() => console.log('connected!'));
+  .then(() => {
+    console.log('connected!');
+  })
+  .catch((e) => {
+    console.log('connection error occured');
+    console.log(e);
+  });
 const con = mongoose.connection;
 con.on('error', console.error.bind(console, 'connection error:'));
 
@@ -76,15 +82,25 @@ function deleteListing(id) {
 function clearListings() {
   return con.db.dropCollection('listings');
 }
+
 function seedDatabase() {
-  return con.db.dropCollection('listings').then(() => {
-    const arr = [];
-    for (let i = 0; i < 100; i += 1) {
-      arr.push(gen.genListing(i));
-    }
-    return createMultiListing(arr);
-  });
+  return con.db.listCollections({ name: 'listings' })
+    .toArray()
+    .then((list) => {
+      const listings = gen.genListingArr();
+      if (list.length === 0) {
+        return createMultiListing(listings);
+      }
+      return con.db.dropCollection('listings')
+        .then(() => createMultiListing(listings));
+    });
 }
+// return con.db.dropCollection('listings').then(() => {
+//   const arr = [];
+//   for (let i = 0; i < 100; i += 1) {
+//     arr.push(gen.genListing(i));
+//   }
+//   return createMultiListing(arr);
 
 
 module.exports.ListingModel = Listing;

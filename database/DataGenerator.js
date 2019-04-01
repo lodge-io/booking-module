@@ -134,6 +134,14 @@ function genListing(id = 0) {
   return listing;
 }
 
+function genListingArr(num = 100) {
+  const arr = [];
+  for (var i = 0; i < 100; i++) {
+    arr.push(genListing(i));
+  }
+  return arr;
+}
+
 
 module.exports = {
   odds,
@@ -147,4 +155,5 @@ module.exports = {
   getRandomPrice,
   genBookingArr,
   genListing,
+  genListingArr,
 };
