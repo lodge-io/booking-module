@@ -45,7 +45,8 @@ const Listing = mongoose.model('listing', listingSchema);
 mongoose.connect('mongodb://localhost/lodge-io', { useNewUrlParser: true });
 const con = mongoose.connection;
 con.on('error', console.error.bind(console, 'connection error:'));
-con.once('open', () => {});
+con.once('open', () => {
+});
 
 function readAll() {
   return Listing.find();
@@ -55,11 +56,19 @@ function readListing(id) {
 }
 function createListing(obj) {
   const a = new Listing(obj);
-  a.save().catch(e => console.log(e)).then(c => console.log('success:\n', c));
+  return a.save().catch(e => console.log(e));
 }
+
+function createMultiListing(arr) {
+  const a = [];
+  arr.forEach(val => a.push(new Listing(val)));
+  // console.log(arr[0]);
+  return Listing.insertMany(a);
+
+}
+
 function deleteListing(id) {
   return Listing.deleteOne({ id }).then((a) => {
-    console.log(a);
     return a;
   });
 }
@@ -74,4 +83,5 @@ module.exports.readListing = readListing;
 module.exports.createListing = createListing;
 module.exports.deleteListing = deleteListing;
 module.exports.readAll = readAll;
+module.exports.createMultiListing = createMultiListing;
 module.exports.con = con;

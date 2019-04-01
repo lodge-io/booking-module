@@ -16,6 +16,7 @@
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.5.0",
     "babel-loader": "^8.0.5",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
@@ -29,9 +30,10 @@
     "webpack-cli": "^3.3.0"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
     "start": "nodemon ./server/server.js",
-    "build": "webpack -d -w"
+    "build": "webpack -d -w",
+    "seed": "node ./database/LoadDatabase.js"
   },
   "repository": {
     "type": "git",
@@ -41,7 +43,7 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lodge-io/booking-module/issues"
-  },  
+  },
   "jest": {
     "testEnvironment": "node",
     "verbose": true

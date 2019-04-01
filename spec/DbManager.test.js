@@ -1,4 +1,5 @@
 const manager = require('../database/DbManager.js');
+const gen = require('../database/DataGenerator.js');
 
 test('should load data from database', () => {
   expect.assertions(1);
@@ -28,16 +29,21 @@ test('should load a specific entry from database', () => {
   });
 });
 
-test('should delete a listing', () => {
-  let deleted;
-  return manager.readAll()
-    .then(list => list.length)
-    .then((len) => {
-      deleted = Math.floor(Math.random() * len);
-      return manager.deleteListing(deleted);
-    })
-    .then(() => manager.readListing(deleted))
-    .then(val => expect(val).toBeFalsy());
+test('should insert a listing', () => {
+  const num = 123123123;
+  return manager.createListing(gen.genListing(num))
+    .then(() => manager.readListing(num))
+    .then((a) => {
+      expect(a.bookings.length).toBeGreaterThanOrEqual(0);
+      return manager.deleteListing(num);
+    });
 });
 
+test('should delete a listing', () => {
+  const num = 123123123;
+  return manager.createListing(gen.genListing(num))
+    .then(() => manager.deleteListing(num))
+    .then(() => manager.readListing(num))
+    .then(val => expect(val).toBeFalsy());
+});
 
