@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-console.log(asdf);
-console.log(shallow);
 
 class Asdf extends React.Component {
   constructor(props) {
