@@ -54,6 +54,10 @@ const TableD = styled.td`
 const ArrowSpan = styled.span`
   flex-grow: 1;
   text-align: center;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 `
 const MonthSpan = styled.span`
   flex-grow: 8;
@@ -79,11 +83,9 @@ const TableHolder = styled.div`
   background-color:blue;
   width: 300px;
   padding: 20px;
+  border-radius: 3px;
 
 `;
-// const Date = styled.div`
-  
-// `;
 
 class Asdf extends React.Component {
   constructor(props) {
@@ -138,7 +140,7 @@ class Asdf extends React.Component {
       <TableHolder> 
         <TopRow>
           <ArrowSpan onClick={() => this.lastMonth()}>&lt;</ArrowSpan>
-          <MonthSpan>{month}</MonthSpan>
+          <MonthSpan>{month} {year}</MonthSpan>
           <ArrowSpan onClick={() => this.nextMonth()}>&gt;</ArrowSpan>
         </TopRow>
         <Table>
