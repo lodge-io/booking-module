@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-// import { findRepos } from 'jest-changed-files';
-// console.log('asdf')
 
 
 
@@ -22,16 +20,11 @@ function numToDay(num) {
   return DAY_NAMES[num];
 }
 
-console.log(Date, 'is the date object');
-console.log(Set, ' is a set');
-console.log(Math, ' is math');
-console.log(Map, ' is map');
-
 
 function getLastMonthDate(month, year = 2019) {
   return (new Date(year, month + 1, 0)).getDate();
 }
-console.log('asdf')
+
 function numToMonth(num) { 
   return MONTH_NAMES[num];
 }
@@ -41,7 +34,6 @@ function getMonthStartWeekday(month, year = 2019) {
 }
 
 const CalendarBox = styled.div`
-  background: transparent;
   color: palevioletred;
   padding: 0.25em 0.25em;
   text-align: center;
@@ -49,6 +41,10 @@ const CalendarBox = styled.div`
 const TableD = styled.td`
   border: 1px solid green;
   width: 42px; height:42px; 
+  background: pink;
+  &:hover{
+    background-color: blue;
+  }
 `
 
 const ArrowSpan = styled.span`
@@ -87,7 +83,7 @@ const TableHolder = styled.div`
 
 `;
 
-class Asdf extends React.Component {
+class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { month: 3, year: 2019};
@@ -118,9 +114,7 @@ class Asdf extends React.Component {
     let month = MONTH_NAMES[this.state.month];
     let date = 1;
     let lastDay = getLastMonthDate(this.state.month, year);
-    console.log(this.state.month, year);
     let firstDay = getMonthStartWeekday(this.state.month, year);
-    console.log(firstDay);
     let table = [];
     
     while(date <= lastDay) {
@@ -130,7 +124,11 @@ class Asdf extends React.Component {
           week.push(<TableD></TableD>);
         } else {
           let myDate = date;
-          week.push(<TableD><CalendarBox onMouseOver={()=>console.log(myDate)}>{myDate}</CalendarBox></TableD>)
+          if (this.state.hovered === date) {
+            week.push(<TableD><CalendarBox onMouseOver={()=>console.log(myDate)}>{myDate}</CalendarBox></TableD>);
+          } else {
+            week.push(<TableD><CalendarBox onMouseOver={()=>console.log(myDate)}>{myDate}</CalendarBox></TableD>);
+          }
           date++;
         }
       }
@@ -155,5 +153,4 @@ class Asdf extends React.Component {
   }
 }
 
-ReactDOM.render(<Asdf/>, 
-  document.querySelector('#app'));
+export default Calendar;
