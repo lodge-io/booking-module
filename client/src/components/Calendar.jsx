@@ -121,7 +121,7 @@ class Calendar extends React.Component {
       let week = [];
       for (let i = 0; i < 7; i++) {
         if ((date === 1 && i < firstDay) || date > lastDay) {
-          week.push(<TableD></TableD>);
+          week.push(<td></td>);
         } else {
           let myDate = date;
           if (this.state.hovered === date) {
