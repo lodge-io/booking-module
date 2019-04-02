@@ -10,12 +10,13 @@ class Asdf extends React.Component {
     return (
       <div>
         rendered properly
-        <div>asdf2</div>
+        <div>asdf</div>
       </div>
     )
   }
 }
 
-ReactDOM.render(<Asdf/>, 
-  document.querySelector('#app'));
+// ReactDOM.render(<Asdf/>, 
+//   document.querySelector('#app'));
 
+export default Asdf;
