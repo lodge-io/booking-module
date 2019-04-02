@@ -4,8 +4,11 @@
   "description": "A module for lodge.io to allow user to view available dates and book a valid stay.",
   "main": " ",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "jest": "^24.5.0",
     "mongoose": "^5.4.20",
+    "nodemon": "^1.18.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.2.0"
@@ -14,6 +17,7 @@
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.5.0",
     "babel-loader": "^8.0.5",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
@@ -27,7 +31,10 @@
     "webpack-cli": "^3.3.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --verbose",
+    "start": "nodemon ./server/server.js",
+    "build": "webpack -d -w",
+    "seed": "node ./database/LoadDatabase.js"
   },
   "repository": {
     "type": "git",
@@ -37,6 +44,10 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lodge-io/booking-module/issues"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true
   },
   "homepage": "https://github.com/lodge-io/booking-module#readme"
 }
