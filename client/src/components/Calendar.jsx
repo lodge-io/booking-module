@@ -101,37 +101,27 @@ class Calendar extends React.Component {
     const lastDay = getLastMonthDate(month, year);
     const firstDay = getMonthStartWeekday(month, year);
     const table = [];
+    let emptyNum = 0;
 
     while (date <= lastDay) {
       const week = [];
       for (let i = 0; i < 7; i += 1) {
         if ((date === 1 && i < firstDay) || date > lastDay) {
-          week.push(<td />);
+          week.push(<td key={emptyNum} />);
+          emptyNum += 1;
         } else {
           const myDate = date;
-          if (hovered === date) {
-            week.push(
-              <TableD>
-                <CalendarBox
-                  onMouseOver={() => console.log(myDate)}
-                  onFocus={() => console.log(myDate)}
-                >
-                  {myDate}
-                </CalendarBox>
-              </TableD>,
-            );
-          } else {
-            week.push(
-              <TableD>
-                <CalendarBox
-                  onMouseOver={() => console.log(myDate)}
-                  onFocus={() => console.log(myDate)}
-                >
-                  {myDate}
-                </CalendarBox>
-              </TableD>,
-            );
-          }
+          week.push(
+            <TableD key={myDate}>
+              <CalendarBox
+                key={myDate}
+                onMouseOver={() => console.log(myDate)}
+                onFocus={() => console.log(myDate)}
+              >
+                {myDate}
+              </CalendarBox>
+            </TableD>,
+          );
           date += 1;
         }
       }
@@ -148,11 +138,10 @@ class Calendar extends React.Component {
           <ArrowSpan onClick={() => this.nextMonth()}>&gt;</ArrowSpan>
         </TopRow>
         <Table>
-          <tr>
-            {SHORT_DAY_NAMES.map(val => <Head>{val}</Head>)}
+          <tr key="header">
+            {SHORT_DAY_NAMES.map(val => <Head key={val}>{val}</Head>)}
           </tr>
-          {table.map(week => <tr>{week.map(val => val)}</tr>)}
-
+          {table.map((week, i) => <tr key={`weekRow:${i}`}>{week.map(val => val)}</tr>)}
         </Table>
       </TableHolder>
     );
