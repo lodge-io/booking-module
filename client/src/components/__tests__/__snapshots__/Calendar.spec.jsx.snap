@@ -17,6 +17,7 @@ exports[`Calendar renders correctly 1`] = `
       className="calTitleSpan sc-bxivhb jXJJxg"
     >
       April
+       
       2019
     </span>
     <span

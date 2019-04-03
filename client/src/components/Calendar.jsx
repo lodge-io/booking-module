@@ -147,6 +147,7 @@ class Calendar extends React.Component {
           <ArrowSpan className="lastMonth" onClick={() => this.lastMonth()}>&lt;</ArrowSpan>
           <MonthSpan className="calTitleSpan">
             {monthName}
+            {' '}
             {year}
           </MonthSpan>
           <ArrowSpan className="nextMonth" onClick={() => this.nextMonth()}>&gt;</ArrowSpan>

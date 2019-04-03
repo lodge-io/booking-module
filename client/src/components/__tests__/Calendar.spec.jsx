@@ -46,22 +46,44 @@ describe('Calendar', () => {
 
   it('should change month when next/last button clicked', () => {
     const wrapper = shallow(<Calendar />);
-    const currYear = new Date(Date.now()).getFullYear();
-    const currMonth = new Date(Date.now()).getMonth();
+    let testYear = new Date(Date.now()).getFullYear();
+    let testMonth = moment().format('MMMM');
     let title = wrapper.find('.calTitleSpan');
-    console.log(title.html());
-    console.log(moment().format('MMMM'));
-    expect(title.contains(moment().format('MMMM'))).toBeTruthy();
+    expect(title.contains(testYear)).toBeTruthy();
+    expect(title.contains(testMonth)).toBeTruthy();
 
     const last = wrapper.find('.lastMonth');
-    console.log(last.length);    
-    console.log(wrapper.state());
+    const next = wrapper.find('.nextMonth');
     last.simulate('click');
-    console.log(wrapper.state());
-    console.log(moment().subtract(1, 'months').format('MMMM'));
     title = wrapper.find('.calTitleSpan');
-    expect(title.contains(moment().subtract(1, 'months').format('MMMM'))).toBeTruthy();
+    testMonth = moment().subtract(1, 'months').format('MMMM');
+    expect(title.contains(testMonth)).toBeTruthy();
+    
+    for (var i = 0; i < 11; i += 1) {
+      last.simulate('click');
+    }
+    
+    title = wrapper.find('.calTitleSpan');
+    testYear = parseInt(moment().subtract(1, 'years').format('YYYY'));
 
+    expect(title.contains(testYear)).toBeTruthy();
+
+    next.simulate('click');
+    title = wrapper.find('.calTitleSpan');
+    testMonth = moment().add(1, 'months').format('MMMM');
+    expect(title.contains(testMonth)).toBeTruthy();
+    expect(title.contains(testYear)).toBeTruthy();
+    for (var i = 0; i < 11; i += 1) {
+      next.simulate('click');
+    }
+
+    title = wrapper.find('.calTitleSpan');
+    testMonth = moment().format('MMMM');
+    testYear = parseInt(moment().format('YYYY'));
+    expect(title.contains(testMonth)).toBeTruthy();
+    expect(title.contains(testYear)).toBeTruthy();
+
+    
   });
   
   it('renders correctly', () => {
