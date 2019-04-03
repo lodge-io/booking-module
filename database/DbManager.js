@@ -44,13 +44,7 @@ const Listing = mongoose.model('listing', listingSchema);
 
 
 const conPromise = mongoose.connect('mongodb://localhost/lodge-io', { useNewUrlParser: true })
-  .then(() => {
-    console.log('connected!');
-  })
-  .catch((e) => {
-    console.log('connection error occured');
-    console.log(e);
-  });
+
 const con = mongoose.connection;
 con.on('error', console.error.bind(console, 'connection error:'));
 
@@ -63,13 +57,12 @@ function readListing(id) {
 }
 function createListing(obj) {
   const a = new Listing(obj);
-  return a.save().catch(e => console.log(e));
+  return a.save();
 }
 
 function createMultiListing(arr) {
   const a = [];
   arr.forEach(val => a.push(new Listing(val)));
-  // console.log(arr[0]);
   return Listing.insertMany(a);
 }
 
