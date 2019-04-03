@@ -4,6 +4,7 @@
   "description": "A module for lodge.io to allow user to view available dates and book a valid stay.",
   "main": " ",
   "dependencies": {
+    "@babel/polyfill": "^7.4.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "jest": "^24.5.0",
@@ -44,10 +45,6 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lodge-io/booking-module/issues"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "verbose": true
   },
   "homepage": "https://github.com/lodge-io/booking-module#readme"
 }
