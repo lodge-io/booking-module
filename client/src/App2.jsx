@@ -17,7 +17,4 @@ class Asdf extends React.Component {
   }
 }
 
-// ReactDOM.render(<Asdf/>, 
-//   document.querySelector('#app'));
-
 export default Asdf;
