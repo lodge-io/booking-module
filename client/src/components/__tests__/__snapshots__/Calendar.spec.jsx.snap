@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Calendar renders correctly 1`] = `
 <div
   className="sc-gzVnrw dStQk"
 >
@@ -8,19 +8,19 @@ exports[`renders correctly 1`] = `
     className="sc-bZQynM gxEjMp"
   >
     <span
-      className="sc-htpNat kwiLFa"
+      className="lastMonth sc-htpNat kwiLFa"
       onClick={[Function]}
     >
       &lt;
     </span>
     <span
-      className="sc-bxivhb jXJJxg"
+      className="calTitleSpan sc-bxivhb jXJJxg"
     >
       April
       2019
     </span>
     <span
-      className="sc-htpNat kwiLFa"
+      className="nextMonth sc-htpNat kwiLFa"
       onClick={[Function]}
     >
       &gt;
@@ -72,7 +72,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -83,7 +84,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -94,7 +96,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -105,7 +108,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -116,7 +120,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -127,7 +132,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -140,7 +146,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -151,7 +158,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -162,7 +170,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -173,7 +182,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -184,7 +194,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -195,7 +206,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -206,7 +218,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -219,7 +232,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -230,7 +244,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -241,7 +256,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -252,7 +268,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -263,7 +280,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -274,7 +292,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -285,7 +304,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -298,7 +318,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -309,7 +330,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -320,7 +342,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -331,7 +354,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -342,7 +366,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -353,7 +378,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -364,7 +390,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -377,7 +404,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -388,7 +416,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
@@ -399,7 +428,8 @@ exports[`renders correctly 1`] = `
         className="sc-bwzfXH cDziqG"
       >
         <div
-          className="sc-bdVaJa iUxxxf"
+          className="a-date sc-bdVaJa iUxxxf"
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >

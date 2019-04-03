@@ -4,6 +4,14 @@ import styled from 'styled-components';
 const SHORT_DAY_NAMES = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+function getCurrMonth() {
+  return new Date(Date.now()).getMonth();
+}
+
+function getCurrYear() {
+  return new Date(Date.now()).getFullYear();
+}
+
 function getLastMonthDate(month, year = 2019) {
   return (new Date(year, month + 1, 0)).getDate();
 }
@@ -69,7 +77,7 @@ const TableHolder = styled.div`
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { month: 3, year: 2019 };
+    this.state = { month: getCurrMonth(), year: getCurrYear() };
   }
 
   nextMonth() {
@@ -78,6 +86,8 @@ class Calendar extends React.Component {
       if (month === 11) {
         month = 0;
         year += 1;
+      } else {
+        month += 1;
       }
       return { month, year };
     });
@@ -89,6 +99,8 @@ class Calendar extends React.Component {
       if (month === 0) {
         month = 11;
         year -= 1;
+      } else {
+        month -= 1;
       }
       return { month, year };
     });
@@ -101,22 +113,24 @@ class Calendar extends React.Component {
     const lastDay = getLastMonthDate(month, year);
     const firstDay = getMonthStartWeekday(month, year);
     const table = [];
-    let emptyNum = 0;
+    let emptyNum = -1;
 
     while (date <= lastDay) {
       const week = [];
       for (let i = 0; i < 7; i += 1) {
         if ((date === 1 && i < firstDay) || date > lastDay) {
           week.push(<td key={emptyNum} />);
-          emptyNum += 1;
+          emptyNum -= 1;
         } else {
           const myDate = date;
           week.push(
             <TableD key={myDate}>
               <CalendarBox
                 key={myDate}
+                className="a-date"
                 onMouseOver={() => console.log(myDate)}
                 onFocus={() => console.log(myDate)}
+                onClick={() => console.log(myDate)}
               >
                 {myDate}
               </CalendarBox>
@@ -130,12 +144,12 @@ class Calendar extends React.Component {
     return (
       <TableHolder>
         <TopRow>
-          <ArrowSpan onClick={() => this.lastMonth()}>&lt;</ArrowSpan>
-          <MonthSpan>
+          <ArrowSpan className="lastMonth" onClick={() => this.lastMonth()}>&lt;</ArrowSpan>
+          <MonthSpan className="calTitleSpan">
             {monthName}
             {year}
           </MonthSpan>
-          <ArrowSpan onClick={() => this.nextMonth()}>&gt;</ArrowSpan>
+          <ArrowSpan className="nextMonth" onClick={() => this.nextMonth()}>&gt;</ArrowSpan>
         </TopRow>
         <Table>
           <tr key="header">
