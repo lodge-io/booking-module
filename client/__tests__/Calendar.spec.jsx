@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import moment from 'moment';
-import Calendar from '../Calendar';
+import Calendar from '../src/components/Calendar';
 
 describe('Calendar', () => {
   it('renders in the dom', () => {

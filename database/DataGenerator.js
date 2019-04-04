@@ -53,7 +53,7 @@ function genFeeArray(feeRate = 0.2) {
 function genTaxArr(taxesRate = 0.8) {
   let taxOdds = taxesRate;
   const myTaxes = [];
-  const taxNames = ['Accomodation Tax', 'Use Tax', 'Sales Tax', 'Hotel Tax', 'Bed Tax', 'Head Tax', 'Healthcare Tax'];
+  const taxNames = ['Accomodation Tax', 'Use Tax', 'Sales Tax', 'Hotel Tax', 'Bed Tax', 'Head Tax', 'Healthcare Tax', 'Hospitality Tax'];
   const randFlatTax = name => ({ name, type: 'flat', amount: Math.ceil((Math.random() * 6) * (Math.random() * 6) * (Math.random() * 6)) });
   const randPercentTax = name => ({ name, type: 'percent', rate: parseFloat((Math.random() / 5).toFixed(4)) });
   const taxConstructors = [randFlatTax, randPercentTax];
