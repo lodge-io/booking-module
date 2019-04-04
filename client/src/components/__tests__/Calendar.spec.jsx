@@ -2,13 +2,10 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import moment from 'moment';
-
 import Calendar from '../Calendar';
 import { wrap } from 'module';
+
 describe('Calendar', () => {
-
-
-
   it('renders in the dom', () => {
     const res = shallow(<Calendar />).find('.calTitleSpan').contains(2019);
     expect(res).toBeTruthy();
