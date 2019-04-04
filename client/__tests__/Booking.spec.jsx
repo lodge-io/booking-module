@@ -3,18 +3,16 @@ import { shallow } from 'enzyme';
 import moment from 'moment';
 import Booking from '../src/components/Booking';
 
-const basicListing = () => {
-  return {
-    id: 123,
-    requirements: [],
-    fees: [],
-    taxes: [],
-    specials: [],
-    reviews: { avgReview: 4.5, numReviews: 300 },
-    price: 120,
-    bookings: [],
-  };
-};
+const basicListing = () => ({
+  id: 123,
+  requirements: [],
+  fees: [],
+  taxes: [],
+  specials: [],
+  reviews: { avgReview: 4.5, numReviews: 300 },
+  price: 120,
+  bookings: [],
+});
 
 const dateFromNow = days => moment().add(days, 'days').startOf('day');
 
@@ -147,12 +145,14 @@ describe('Booking component', () => {
   });
 
   xit('should ensure reservation has a valid number of guests', () => {
-
+  
   });
 
   xit('should close calendar and show price calc after a valid range has been selected', () => {
 
   });
+
+
 
   xit('should correctly calculate price given fees and taxes', () => {
 
