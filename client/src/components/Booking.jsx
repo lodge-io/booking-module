@@ -45,9 +45,6 @@ class Booking extends React.Component {
     // load listing
   }
 
-  inputDate(){
-    console.log('input date was invoked!');
-  }
 
   render() {
     return (
