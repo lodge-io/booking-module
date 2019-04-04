@@ -3,7 +3,6 @@ const gen = require('../database/DataGenerator.js');
 
 beforeAll((next) => {
   return manager.conPromse.then(() => {
-    console.log(next, 'invoked');
     return manager.seedDatabase().then(() => next());
   });
 });
