@@ -44,10 +44,6 @@ describe('Booking component', () => {
     expect(wrapper.state().selecting).toBe(1);
   });
 
-  xit('on booking button press, should open calendar with first date selecting', () => {
-
-  });
-
   xit('should take a start date and switch to selecting end date', () => {
     const listing = basicListing();
     const wrapper = shallow(<Booking listing={listing} />);
@@ -100,11 +96,11 @@ describe('Booking component', () => {
 
   });
 
-  xit('should close calendar and calculate price after a valid range has been selected', () => {
+  xit('should ensure reservation has a valid number of guests', () => {
 
   });
 
-  xit('should ensure reservation has a valid number of guests', () => {
+  xit('should close calendar and show price calc after a valid range has been selected', () => {
 
   });
 
@@ -112,11 +108,12 @@ describe('Booking component', () => {
 
   });
 
+  xit('on booking button press with invalid range, should open calendar with first date selecting', () => {
 
+  });
 
+  xit('on booking button press with valid booking, should post to server', () => {
 
+  });
 
-
-
-  
 });
