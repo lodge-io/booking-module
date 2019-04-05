@@ -26,13 +26,13 @@ const clickOnEndDateField = (wrapper) => {
 };
 
 describe('Booking component', () => {
-  xit('should render the price of a listing', () => {
+  it('should render the price of a listing', () => {
     const listing = basicListing();
     const wrapper = shallow(<Booking listing={listing} />);
     expect(wrapper.contains(120)).toBeTruthy();
   });
 
-  xit('should open calendar on click to a start date', () => {
+  it('should open calendar on click to a start date', () => {
     const listing = basicListing();
     const wrapper = shallow(<Booking listing={listing} />);
 
@@ -41,7 +41,7 @@ describe('Booking component', () => {
     expect(wrapper.state().selecting).toBe(0);
   });
 
-  xit('should open calendar on click to a end date', () => {
+  it('should open calendar on click to a end date', () => {
     const listing = basicListing();
     const wrapper = shallow(<Booking listing={listing} />);
     clickOnEndDateField(wrapper);
@@ -49,7 +49,7 @@ describe('Booking component', () => {
     expect(wrapper.state().selecting).toBe(1);
   });
 
-  xit('should take a start date and switch to selecting end date', () => {
+  it('should take a start date and switch to selecting end date', () => {
     const listing = basicListing();
     const wrapper = shallow(<Booking listing={listing} />);
     clickOnStartDateField(wrapper);
@@ -60,7 +60,7 @@ describe('Booking component', () => {
     expect(wrapper.state().selecting).toEqual(1);
   });
 
-  xit('should take an end date and switch to selecting start date', () => {
+  it('should take an end date and switch to selecting start date', () => {
     const listing = basicListing();
     const wrapper = shallow(<Booking listing={listing} />);
     clickOnEndDateField(wrapper);
@@ -71,7 +71,7 @@ describe('Booking component', () => {
     expect(wrapper.state().selecting).toEqual(0);
   });
 
-  xit('should reject dates from the past', () => {
+  it('should reject dates from the past', () => {
     const listing = basicListing();
     const wrapper = shallow(<Booking listing={listing} />);
     const date = dateFromNow(-5);
@@ -85,7 +85,7 @@ describe('Booking component', () => {
     expect(wrapper.state.endDate).toBeFalsy();
   });
 
-  xit('should reject dates which are already booked', () => {
+  it('should reject dates which are already booked', () => {
     const listing = basicListing();
     const bookingStart = dateFromNow(3);
     const bookingEnd = dateFromNow(6);
@@ -104,7 +104,7 @@ describe('Booking component', () => {
     expect(wrapper.state().startDate.format()).toBe(goodReserveTime.format());
   });
 
-  xit('should reject bookings which have another booking in the middle', () => {
+  it('should reject bookings which have another booking in the middle', () => {
     const listing = basicListing();
     const bookingStart = dateFromNow(3);
     const bookingEnd = dateFromNow(6);
