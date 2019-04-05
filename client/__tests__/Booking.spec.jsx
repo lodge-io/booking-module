@@ -219,16 +219,22 @@ describe('Booking component', () => {
 
   xit('should be able to parse dates from strings in input field', () => {
     const wrapper = shallow(<Booking listing={basicListing()} />);
-    wrapper.find('.dateSelectStart').first()
+    const dateStr = '01/01/2019';
+    clickOnStartDateField(wrapper);
+    wrapper.find('.dateSelectStart').simulate('change', { target: { value: dateStr } });
+    
+    expect(wrapper.state().startDate).toBe(moment(dateStr));
+    expect(wrapper.state().selecting).toBe(1);
 
   });
 
   xit('should ignore invalid dates in input field', () => {
+    const wrapper = shallow(<Booking listing={basicListing()} />);
+    const dateStr = '14/01/2019';
+    clickOnStartDateField(wrapper);
+    wrapper.find('.dateSelectStart').simulate('change', { target: { value: dateStr } });
 
+    expect(wrapper.state().startDate).toBeFalsy();
+    expect(wrapper.state().selecting).toBe(0);
   });
-
-  xit('should store reservation dates as the start of a day', () => {
-
-  });
-
 });

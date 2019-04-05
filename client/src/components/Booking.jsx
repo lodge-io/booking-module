@@ -37,7 +37,7 @@ class Booking extends React.Component {
       selecting: -1,
       calOpen: false,
       guestSelectOpen: false,
-      guests:{},
+      guests: {},
       showCost:false
     };
     this.handleStartDateClick = this.handleStartDateClick.bind(this);
