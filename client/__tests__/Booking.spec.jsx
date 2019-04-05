@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import moment from 'moment';
 import Booking from '../src/components/Booking';
+import { wrap } from 'module';
 
 const basicListing = () => ({
   id: 123,
@@ -25,11 +26,10 @@ const clickOnEndDateField = (wrapper) => {
 };
 
 describe('Booking component', () => {
-
   xit('should render the price of a listing', () => {
     const listing = basicListing();
     const wrapper = shallow(<Booking listing={listing} />);
-    expect(wrapper.contains(123)).toBeTruthy();
+    expect(wrapper.contains(120)).toBeTruthy();
   });
 
   xit('should open calendar on click to a start date', () => {
@@ -92,20 +92,40 @@ describe('Booking component', () => {
     const badReserveTime = dateFromNow(3);
     const goodReserveTime = dateFromNow(6);
     listing.bookings.push({
-      startDate: bookingStart.toDate(),
-      endDate: bookingEnd.toDate(),
+      startDate: bookingStart,
+      endDate: bookingEnd,
     });
 
     const wrapper = shallow(<Booking listing={listing} />);
+    clickOnStartDateField(wrapper);
     wrapper.instance().inputDate(badReserveTime);
     expect(wrapper.state().startDate).toBeFalsy();
     wrapper.instance().inputDate(goodReserveTime);
-    expect(wrapper.state().statDate.format()).toBe(goodReserveTime.format());
+    expect(wrapper.state().startDate.format()).toBe(goodReserveTime.format());
   });
 
-  xit('should reject bookings which do not meet required length', () => {
+  xit('should reject bookings which have another booking in the middle', () => {
     const listing = basicListing();
-    listing.requirements = { minimum_stay_length: 5, maximum_stay_length: 30 };
+    const bookingStart = dateFromNow(3);
+    const bookingEnd = dateFromNow(6);
+    const badStartTime = dateFromNow(2);
+    const badEndTime = dateFromNow(7);
+    listing.bookings.push({
+      startDate: bookingStart,
+      endDate: bookingEnd,
+    });
+
+    const wrapper = shallow(<Booking listing={listing} />);
+    clickOnStartDateField(wrapper);
+    wrapper.instance().inputDate(badStartTime);
+    wrapper.instance().inputDate(badEndTime);
+    expect(wrapper.state().endDate).toBeFalsy();
+    expect(wrapper.state().selecting).toBe(1);
+  });
+
+  it('should reject bookings which do not meet required length', () => {
+    const listing = basicListing();
+    listing.requirements = { minBookingLength: 5, maxBookingLength: 30 };
     const wrapper = shallow(<Booking listing={listing} />);
     const startDate = dateFromNow(2);
     const tooShortEnd = dateFromNow(6);
@@ -127,7 +147,7 @@ describe('Booking component', () => {
     expect(wrapper.state().calOpen).toBeFalsy();
   });
 
-  xit('should clear second entry of a booking where the start is after the end', () => {
+  it('should clear second entry of a booking where the start is after the end', () => {
     const wrapper = shallow(<Booking listing={basicListing()} />);
     const badStart = dateFromNow(5);
     const badEnd = dateFromNow(3);
@@ -145,14 +165,12 @@ describe('Booking component', () => {
   });
 
   xit('should ensure reservation has a valid number of guests', () => {
-  
+    
   });
 
   xit('should close calendar and show price calc after a valid range has been selected', () => {
 
   });
-
-
 
   xit('should correctly calculate price given fees and taxes', () => {
 

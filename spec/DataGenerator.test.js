@@ -20,8 +20,8 @@ test('should gen an object with valid requirements or nothing', () => {
     expect([0, 1, 2, 3]).toContain(Object.keys(res).length);
     Object.keys(res).forEach(checkRes);
   }
-  if (res.maximum_stay_length && res.minimum_stay_length) {
-    expect(res.maximum_stay_length).toBeGreaterThanOrEqual(res.minimum_stay_length);
+  if (res.maxBookingLength && res.minBookingLength) {
+    expect(res.maxBookingLength).toBeGreaterThanOrEqual(res.minBookingLength);
   }
 });
 
