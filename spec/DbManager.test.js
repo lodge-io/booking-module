@@ -8,7 +8,6 @@ beforeAll((next) => {
 });
 
 test('should load data from database', () => {
-  console.log('test 1 starting');
   expect.assertions(1);
   return manager.readAll().then(val => expect(val.length).toBeGreaterThan(0));
 });
