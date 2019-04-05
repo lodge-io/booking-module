@@ -34,7 +34,7 @@ function genReqObj(ruleRate = 0.4) {
   return myRules;
 }
 
-function genFeeArray(feeRate = 0.2) {
+function genFeeObj(feeRate = 0.2) {
   const myFees = {};
   myFees['Cleaning Fee'] = Math.ceil((Math.random() * 7 + 1) * (Math.random() * 7 + 1) * (Math.random() * 7 + 1));
   const fees = ['Sheet flipping fee', 'Plant watering fee', 'Fee fee', 'Residency fee', 'Booking fee', 'Service fee'];
@@ -125,7 +125,7 @@ function genListing(id = 0) {
   const listing = {};
   listing.id = id;
   listing.requirements = genReqObj();
-  listing.fees = genFeeArray();
+  listing.fees = genFeeObj();
   listing.taxes = genTaxArr();
   listing.specials = genSpecialArr();
   listing.reviews = getReviewStats();
@@ -148,7 +148,7 @@ module.exports = {
   randInt,
   randChoice,
   genReqObj,
-  genFeeArray,
+  genFeeObj,
   genTaxArr,
   genSpecialArr,
   getReviewStats,

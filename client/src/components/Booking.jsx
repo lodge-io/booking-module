@@ -37,7 +37,8 @@ class Booking extends React.Component {
       selecting: -1,
       calOpen: false,
       guestSelectOpen: false,
-      guests:{}
+      guests:{},
+      showCost:false
     };
     this.handleStartDateClick = this.handleStartDateClick.bind(this);
     this.handleEndDateClick = this.handleEndDateClick.bind(this);
@@ -106,11 +107,6 @@ class Booking extends React.Component {
     } 
     if (maxBookingLength && endDate.diff(startDate, 'days') > maxBookingLength) {
       return true;
-    }
-    if (guests.adults < 0
-      || guests.adults + guests.children > maxGuests
-      || guests.infants > 5) {
-      return false;
     }
     if (bookings.length === 0) {
       return false;
