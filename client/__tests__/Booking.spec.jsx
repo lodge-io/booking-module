@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import moment from 'moment';
 import Booking from '../src/components/Booking';
-import { wrap } from 'module';
 
 const basicListing = () => ({
   id: 123,
@@ -164,43 +163,15 @@ describe('Booking component', () => {
     expect(wrapper.state().selecting).toBe(1);
   });
 
-  xit('should close calendar and show price calc after a valid range has been selected', () => {
-    const wrapper = shallow(<Booking listing={basicListing()} />);
-    const start = dateFromNow(3);
-    const end = dateFromNow(6);
-
-    clickOnStartDateField(wrapper);
-    wrapper.instance().inputDate(start);
-    wrapper.instance().inputDate(end);
-    expect(wrapper.state().calOpen).toBeFalsy();
-    expect(wrapper.state().showCost).toBeTruthy();
-    expect(wrapper.find('.totalBookingCost').contains(360)).toBeTruthy();
-  });
-
-  xit('should correctly calculate price given fees and taxes', () => {
-    const listing = basicListing();
-    listing.fees = { 'Cleaning Fee': 20 };
-    listing.taxes = [{ name: 'Flat Tax', type: 'flat', amount: 30 },
-      { name: 'Percent Tax', type: 'percent', rate: 0.0815 }];
-
-    const wrapper = shallow(<Booking listing={listing} />);
-    const startDay = 3;
-    const endDay = 6;
-    const start = dateFromNow(startDay);
-    const end = dateFromNow(endDay);
-
-    clickOnStartDateField(wrapper);
-    wrapper.instance().inputDate(start);
-    wrapper.instance().inputDate(end);
-    expect(wrapper.state().calOpen).toBeFalsy();
-    expect(wrapper.state().showCost).toBeTruthy();
-    const total = (
-      (endDay - startDay) * listing.price + listing.fees['Cleaning Fee']
-    )
-    * (1 + listing.taxes[1].rate)
-    + listing.taxes[0].amount;
-
-    expect(wrapper.find('.totalBookingCost').contains(total)).toBeTruthy();
+  it('should show loading before listing is loaded and load failed', () => {
+    const wrapper = shallow(<Booking />);
+    expect(wrapper.state().listing).toBeFalsy();
+    return new Promise((accept, reject) => {
+      setTimeout(() => {
+        expect(wrapper.state().failed).toBeTruthy();
+        accept();
+      }, 100);
+    });
   });
 
   xit('on booking button press with invalid range, should open calendar with first date selecting', () => {

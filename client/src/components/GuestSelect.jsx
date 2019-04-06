@@ -8,7 +8,6 @@ const GuestSelectDiv = styled.div`
 
 const GuestTypeRow = styled.div`
   display: flex;
-
 `;
 
 
@@ -25,7 +24,6 @@ const GuestTypeEntry = ({ type, count, setGuestCount }) => (
 );
 
 const GuestSelect = ({ guests, setGuestCount, close }) => {
-  console.log(guests);
   return (
     <GuestSelectDiv>
       <GuestTypeEntry type="Adults" count={guests.adults} setGuestCount={setGuestCount} />

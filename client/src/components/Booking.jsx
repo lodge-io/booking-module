@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
 import Calendar from './Calendar.jsx';
-import Costs from './Price.jsx';
+import Costs from './Costs.jsx';
 import Review from './Review.jsx';
 import GuestSelect from './GuestSelect.jsx';
 
@@ -44,8 +44,6 @@ const BookButton = styled.button`
   height:40px;
 `;
 
-
-
 class Booking extends React.Component {
   constructor(props) {
     super(props);
@@ -79,26 +77,7 @@ class Booking extends React.Component {
     // load listing
   }
 
-  inputDate(date) {
-    const { startDate, endDate, selecting } = this.state;
-    if (this.isInvalidDate(date)) {
-      this.setState({ selecting: 0 });
-      return;
-    }
-    if (selecting === 0) {
-      this.setState({ startDate: date, selecting: 1 });
-    } else if (selecting === 1) {
-      this.setState({ endDate: date, selecting: 0 });
-    }
-    if ((startDate && selecting === 1) || (endDate && selecting === 0)) {
-      if ((selecting === 1 && this.isInvalidBooking(startDate, date))
-        || (selecting === 0 && this.isInvalidBooking(date, endDate))) {
-        this.setState({ endDate: null, selecting: 1 });
-      } else {
-        this.setState({ calOpen: false, selecting: -1 });
-      }
-    }
-  }
+
 
   isInvalidDate(date) {
     if (date.valueOf() < utcMoment().startOf('day').valueOf()) {
@@ -185,13 +164,34 @@ class Booking extends React.Component {
           this.setState({ guests });
         }
       }
-    } 
+    }
+  }
+
+  inputDate(date) {
+    const { startDate, endDate, selecting } = this.state;
+    if (this.isInvalidDate(date)) {
+      this.setState({ selecting: 0 });
+      return;
+    }
+    if (selecting === 0) {
+      this.setState({ startDate: date, selecting: 1 });
+    } else if (selecting === 1) {
+      this.setState({ endDate: date, selecting: 0 });
+    }
+    if ((startDate && selecting === 1) || (endDate && selecting === 0)) {
+      if ((selecting === 1 && this.isInvalidBooking(startDate, date))
+        || (selecting === 0 && this.isInvalidBooking(date, endDate))) {
+        this.setState({ endDate: null, selecting: 1 });
+      } else {
+        this.setState({ calOpen: false, selecting: -1 });
+      }
+    }
   }
 
   handleBook() {
     const { startDate, endDate } = this.state;
     if (!this.isInvalidBooking(startDate, endDate)) {
-      //post here
+      // post here
     } else {
       this.setState({ selecting: 0, calOpen: true });
     }

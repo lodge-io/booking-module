@@ -76,8 +76,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             1
           </div>
@@ -88,8 +86,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             2
           </div>
@@ -100,8 +96,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             3
           </div>
@@ -112,8 +106,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             4
           </div>
@@ -124,8 +116,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             5
           </div>
@@ -136,8 +126,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             6
           </div>
@@ -150,8 +138,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             7
           </div>
@@ -162,8 +148,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             8
           </div>
@@ -174,8 +158,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             9
           </div>
@@ -186,8 +168,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             10
           </div>
@@ -198,8 +178,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             11
           </div>
@@ -210,8 +188,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             12
           </div>
@@ -222,8 +198,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             13
           </div>
@@ -236,8 +210,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             14
           </div>
@@ -248,8 +220,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             15
           </div>
@@ -260,8 +230,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             16
           </div>
@@ -272,8 +240,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             17
           </div>
@@ -284,8 +250,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             18
           </div>
@@ -296,8 +260,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             19
           </div>
@@ -308,8 +270,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             20
           </div>
@@ -322,8 +282,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             21
           </div>
@@ -334,8 +292,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             22
           </div>
@@ -346,8 +302,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             23
           </div>
@@ -358,8 +312,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             24
           </div>
@@ -370,8 +322,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             25
           </div>
@@ -382,8 +332,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             26
           </div>
@@ -394,8 +342,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             27
           </div>
@@ -408,8 +354,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             28
           </div>
@@ -420,8 +364,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             29
           </div>
@@ -432,8 +374,6 @@ exports[`Calendar renders correctly 1`] = `
           <div
             className="a-date sc-bdVaJa iUxxxf"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             30
           </div>

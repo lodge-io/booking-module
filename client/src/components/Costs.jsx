@@ -10,27 +10,19 @@ const RowItem = styled.div`
   text-align: ${props => (props.isCost ? 'right' : 'left')}
 `;
 
-const CostLine = ({title, cost, isTotal}) => (
+const CostLine = ({ title, cost, isTotal }) => (
   <div>
     <Row>
       <RowItem isCost={false}>
         {title}
       </RowItem>
-      <RowItem isCost={true}>
+      <RowItem className={isTotal?"totalBookingCost":""} isCost>
         {`$${cost}`}
       </RowItem>
     </Row>
     {isTotal ? '' : <hr />}
   </div>
-)
-
-
-function nightCost(costs) {
-  return costs.reduce((sum, cost) => sum + cost, 0);
-}
-function avgCost(costs) {
-  return nightCost(costs) / costs.length;
-}
+);
 
 function getTaxRate(taxes) {
   let rate = 0;
@@ -75,10 +67,9 @@ const Costs = ({ duration, price, fees, taxes }) => {
         <CostLine title={fee[0]} cost={fee[1]} />
       ))}
       <CostLine title="Occupancy Taxes and Fees" cost={totalTaxCost} />
-      <CostLine title="Total" cost={totalCost} isTotal={true}/>
+      <CostLine title="Total" cost={totalCost} isTotal />
     </div>
   );
 };
-
 
 export default Costs;

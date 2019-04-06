@@ -26,9 +26,8 @@ const EmptyStar = () => (
 );
 
 
-const Review = (props) => {
+const Review = ({ numReviews, avgReview }) => {
   const starArr = [];
-  const { numReviews, avgReview } = props;
   for (let i = 0; i < 5; i += 1) {
     if (i < avgReview - 0.75) {
       starArr.push(<FullStar />);

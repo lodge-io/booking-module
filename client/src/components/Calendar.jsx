@@ -17,7 +17,7 @@ function getCurrYear() {
   return new Date(Date.now()).getFullYear();
 }
 
-function getLastMonthDate(month, year = 2019) {
+function getLastMonthDate(month, year) {
   return (new Date(year, month + 1, 0)).getDate();
 }
 
@@ -25,7 +25,7 @@ function numToMonth(num) {
   return MONTH_NAMES[num];
 }
 
-function getMonthStartWeekday(month, year = 2019) {
+function getMonthStartWeekday(month, year) {
   return new Date(year, month).getDay();
 }
 
@@ -143,8 +143,6 @@ class Calendar extends React.Component {
               <CalendarBox
                 key={myDate}
                 className="a-date"
-                onMouseOver={() => console.log(myDate)}
-                onFocus={() => console.log(myDate)}
                 onClick={() => {
                   inputDate(createDate(year, month, myDate));
                 }
