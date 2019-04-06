@@ -19,16 +19,18 @@ const SelectorBox = styled.div`
   line-height: 30px;
   padding:7px;
   padding-left: 15px;
+  display: flex;
   flex-direction: row;
   `;
 
-const DateSelect = styled.span`
+const DateSelect = styled.div`
+  min-width:33%;
   width: 33%;
   border-radius: 3px;
   background-color: ${props => (props.selected ? 'blue' : 'white')}
 `;
 
-const MiddleArrow = styled.span`
+const MiddleArrow = styled.div`
   width: 33%;
 `;
 
@@ -79,7 +81,8 @@ class Booking extends React.Component {
       this.setState({ endDate: date, selecting: 0 });
     }
     if ((startDate && selecting === 1) || (endDate && selecting === 0)) {
-      if (this.isInvalidBooking(startDate || date, endDate || date)) {
+      if ((selecting === 1 && this.isInvalidBooking(startDate, date))
+        || (selecting === 0 && this.isInvalidBooking(date, startDate))) {
         this.setState({ endDate: null, selecting: 1 });
       } else {
         this.setState({ calOpen: false, selecting: -1 });
