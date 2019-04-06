@@ -29,7 +29,7 @@ test('should creat an array of fees', () => {
   let res;
   const feeChecker = key => expect(res[key]).toBeGreaterThan(0);
   for (let i = 0; i < 10; i += 1) {
-    res = gen.genFeeArray();
+    res = gen.genFeeObj();
     expect(Object.keys(res).length).toBeGreaterThan(0);
     Object.keys(res).forEach(feeChecker);
   }

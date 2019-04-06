@@ -11,33 +11,21 @@ describe('Calendar', () => {
   });
 
   it('should log when a date is hovered, clicked or focused', () => {
-    const oldLog = console.log;
-    const mockLog = jest.fn(() => {});
 
-    console.log = mockLog;
-    const wrapper = shallow(<Calendar />);
+    const mockListener = jest.fn(() => {});
+
+    const wrapper = shallow(<Calendar inputDate={mockListener}/>);
     const dates = wrapper.find('.a-date');
     dates.at(0).simulate('click');
     dates.at(5).simulate('click');
     dates.at(23).simulate('click');
     dates.at(11).simulate('click');
 
-    dates.at(0).simulate('mouseover');
-    dates.at(5).simulate('mouseover');
-    dates.at(13).simulate('mouseover');
-    dates.at(18).simulate('mouseover');
-
-    dates.at(0).simulate('focus');
-    dates.at(5).simulate('focus');
-    dates.at(13).simulate('focus');
-    dates.at(18).simulate('focus');
-
-    expect(mockLog.mock.calls.length).toBe(12);
-    expect(mockLog.mock.calls[0][0]).toBe(1);
-    expect(mockLog.mock.calls[1][0]).toBe(6);
-    expect(mockLog.mock.calls[2][0]).toBe(24);
-    expect(mockLog.mock.calls[3][0]).toBe(12);
-    console.log = oldLog;
+    expect(mockListener.mock.calls.length).toBe(4);
+    expect(mockListener.mock.calls[0][0] instanceof moment).toBeTruthy();
+    expect(mockListener.mock.calls[1][0] instanceof moment).toBeTruthy();
+    expect(mockListener.mock.calls[2][0] instanceof moment).toBeTruthy();
+    expect(mockListener.mock.calls[3][0] instanceof moment).toBeTruthy();
   });
 
   it('should change month when next/last button clicked', () => {

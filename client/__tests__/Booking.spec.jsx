@@ -164,32 +164,77 @@ describe('Booking component', () => {
     expect(wrapper.state().selecting).toBe(1);
   });
 
-  xit('should ensure reservation has a valid number of guests', () => {
-    
-  });
-
   xit('should close calendar and show price calc after a valid range has been selected', () => {
+    const wrapper = shallow(<Booking listing={basicListing()} />);
+    const start = dateFromNow(3);
+    const end = dateFromNow(6);
 
+    clickOnStartDateField(wrapper);
+    wrapper.instance().inputDate(start);
+    wrapper.instance().inputDate(end);
+    expect(wrapper.state().calOpen).toBeFalsy();
+    expect(wrapper.state().showCost).toBeTruthy();
+    expect(wrapper.find('.totalBookingCost').contains(360)).toBeTruthy();
   });
 
   xit('should correctly calculate price given fees and taxes', () => {
+    const listing = basicListing();
+    listing.fees = { 'Cleaning Fee': 20 };
+    listing.taxes = [{ name: 'Flat Tax', type: 'flat', amount: 30 },
+      { name: 'Percent Tax', type: 'percent', rate: 0.0815 }];
 
+    const wrapper = shallow(<Booking listing={listing} />);
+    const startDay = 3;
+    const endDay = 6;
+    const start = dateFromNow(startDay);
+    const end = dateFromNow(endDay);
+
+    clickOnStartDateField(wrapper);
+    wrapper.instance().inputDate(start);
+    wrapper.instance().inputDate(end);
+    expect(wrapper.state().calOpen).toBeFalsy();
+    expect(wrapper.state().showCost).toBeTruthy();
+    const total = (
+      (endDay - startDay) * listing.price + listing.fees['Cleaning Fee']
+    )
+    * (1 + listing.taxes[1].rate)
+    + listing.taxes[0].amount;
+
+    expect(wrapper.find('.totalBookingCost').contains(total)).toBeTruthy();
   });
 
   xit('on booking button press with invalid range, should open calendar with first date selecting', () => {
-
+    const wrapper = shallow(<Booking listing={basicListing()} />);
+    const start = dateFromNow(4);
+    const end = dateFromNow(3);
+    wrapper.instance().setState({startDate: start, endDate: end });
+    wrapper.find('.bookButton').first().simulate('click');
+    expect(wrapper.state().endDate).toBeFalsy();
+    expect(wrapper.state().selecting).toBe(1);
   });
 
   xit('on booking button press with valid booking, should post to server', () => {
-
+    
   });
 
   xit('should be able to parse dates from strings in input field', () => {
+    const wrapper = shallow(<Booking listing={basicListing()} />);
+    const dateStr = '01/01/2019';
+    clickOnStartDateField(wrapper);
+    wrapper.find('.dateSelectStart').simulate('change', { target: { value: dateStr } });
+    
+    expect(wrapper.state().startDate).toBe(moment(dateStr));
+    expect(wrapper.state().selecting).toBe(1);
 
   });
 
-  xit('should store reservation dates as the start of a day', () => {
+  xit('should ignore invalid dates in input field', () => {
+    const wrapper = shallow(<Booking listing={basicListing()} />);
+    const dateStr = '14/01/2019';
+    clickOnStartDateField(wrapper);
+    wrapper.find('.dateSelectStart').simulate('change', { target: { value: dateStr } });
 
+    expect(wrapper.state().startDate).toBeFalsy();
+    expect(wrapper.state().selecting).toBe(0);
   });
-
 });
