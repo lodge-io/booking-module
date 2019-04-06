@@ -1,5 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
+import { create } from 'domain';
+
+
+const utcMoment = moment.utc;
 
 const SHORT_DAY_NAMES = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -22,6 +27,13 @@ function numToMonth(num) {
 
 function getMonthStartWeekday(month, year = 2019) {
   return new Date(year, month).getDay();
+}
+
+function createDate(year, month, day) {
+  const strYear = `${year}`;
+  const strMonth = month >= 10 ? `${month + 1}` : `0${month + 1}`;
+  const strDay = day >= 10 ? `${day}` : `0${day}`;
+  return utcMoment(`${strYear}-${strMonth}-${strDay}`);
 }
 
 const CalendarBox = styled.div`
@@ -105,9 +117,12 @@ class Calendar extends React.Component {
       return { month, year };
     });
   }
+  
+
 
   render() {
     const { year, month, hovered } = this.state;
+    const { inputDate } = this.props;
     const monthName = numToMonth(month);
     let date = 1;
     const lastDay = getLastMonthDate(month, year);
@@ -130,7 +145,11 @@ class Calendar extends React.Component {
                 className="a-date"
                 onMouseOver={() => console.log(myDate)}
                 onFocus={() => console.log(myDate)}
-                onClick={() => console.log(myDate)}
+                onClick={() => {
+                  console.log(createDate(year, month, myDate).format());
+                  inputDate(createDate(year, month, myDate));
+                }
+                }
               >
                 {myDate}
               </CalendarBox>
@@ -153,10 +172,12 @@ class Calendar extends React.Component {
           <ArrowSpan className="nextMonth" onClick={() => this.nextMonth()}>&gt;</ArrowSpan>
         </TopRow>
         <Table>
-          <tr key="header">
-            {SHORT_DAY_NAMES.map(val => <Head key={val}>{val}</Head>)}
-          </tr>
-          {table.map((week, i) => <tr key={`weekRow:${i}`}>{week.map(val => val)}</tr>)}
+          <tbody>
+            <tr key="header">
+              {SHORT_DAY_NAMES.map(val => <Head key={val}>{val}</Head>)}
+            </tr>
+            {table.map((week, i) => <tr key={`weekRow:${i}`}>{week.map(val => val)}</tr>)}
+          </tbody>
         </Table>
       </TableHolder>
     );

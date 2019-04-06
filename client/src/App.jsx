@@ -1,6 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Calendar from './components/Calendar.jsx';
+import Booking from './components/Booking.jsx';
 
-ReactDOM.render(<Calendar />,
+const listing = {
+  id: 123,
+  requirements: [],
+  fees: [],
+  taxes: [],
+  specials: [],
+  reviews: { avgReview: 4.5, numReviews: 300 },
+  price: 120,
+  bookings: [],
+};
+
+ReactDOM.render(<Booking listing={listing} />,
   document.querySelector('#app'));

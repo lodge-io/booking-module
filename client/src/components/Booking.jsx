@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Calendar from './Calendar.jsx';
 import moment from 'moment';
+import Calendar from './Calendar.jsx';
+import Costs from './Price.jsx';
+
+const utcMoment = moment.utc;
 
 const BookingDiv = styled.div`
   width:330px;
@@ -15,6 +18,18 @@ const SelectorBox = styled.div`
   height:30px;
   line-height: 30px;
   padding:7px;
+  padding-left: 15px;
+  flex-direction: row;
+  `;
+
+const DateSelect = styled.span`
+  width: 33%;
+  border-radius: 3px;
+  background-color: ${props => (props.selected ? 'blue' : 'white')}
+`;
+
+const MiddleArrow = styled.span`
+  width: 33%;
 `;
 
 const BookButton = styled.button`
@@ -42,6 +57,7 @@ class Booking extends React.Component {
     };
     this.handleStartDateClick = this.handleStartDateClick.bind(this);
     this.handleEndDateClick = this.handleEndDateClick.bind(this);
+    this.inputDate = this.inputDate.bind(this);
   }
 
   componentDidMount() {
@@ -63,16 +79,16 @@ class Booking extends React.Component {
       this.setState({ endDate: date, selecting: 0 });
     }
     if ((startDate && selecting === 1) || (endDate && selecting === 0)) {
-      if (this.isInvalidBooking()) {
+      if (this.isInvalidBooking(startDate || date, endDate || date)) {
         this.setState({ endDate: null, selecting: 1 });
       } else {
-        this.setState({ calOpen: false });
+        this.setState({ calOpen: false, selecting: -1 });
       }
     }
   }
 
   isInvalidDate(date) {
-    if (date.valueOf() < moment().startOf('day').valueOf()) {
+    if (date.valueOf() < utcMoment().startOf('day').valueOf()) {
       return true;
     }
     // TODO - implement binary search to speed up
@@ -95,8 +111,8 @@ class Booking extends React.Component {
     return false;
   }
 
-  isInvalidBooking() {
-    const { listing, startDate, endDate, guests } = this.state;
+  isInvalidBooking(startDate, endDate) {
+    const { listing, guests } = this.state;
     const { minBookingLength, maxBookingLength, maxGuests } = listing.requirements;
     const { bookings } = listing;
     if (startDate >= endDate) {
@@ -130,12 +146,20 @@ class Booking extends React.Component {
   }
 
   render() {
-    const { calOpen, listing } = this.state;
+    const {
+      calOpen, listing, selecting, startDate, endDate, failed,
+    } = this.state;
+    if (failed) {
+      return <div>Load failed!</div>;
+    }
+    if (!listing) {
+      return <div>listing loading</div>;
+    }
     return (
       <BookingDiv>
         <div>
           $
-          {listing.price}
+          {listing ? listing.price : ' '}
           {' '}
           per night
         </div>
@@ -147,32 +171,31 @@ class Booking extends React.Component {
           Dates
         </div>
         <SelectorBox>
-          <span className="dateSelectStart" onClick={this.handleStartDateClick} />
-          -&lt;
-          <span className="dateSelectEnd" onClick={this.handleEndDateClick} />
+          <DateSelect className="dateSelectStart" selected={selecting === 0} onClick={this.handleStartDateClick}> 
+            {startDate ? startDate.format('MM/DD/YYYY') : ''}
+          </DateSelect>
+          <MiddleArrow>-&gt;</MiddleArrow>
+          <DateSelect className="dateSelectEnd" selected={selecting === 1} onClick={this.handleEndDateClick}> 
+            {endDate ? endDate.format('MM/DD/YYYY') : ''}
+          </DateSelect>
         </SelectorBox>
-        { calOpen ? <Calendar /> : '' }
+        { calOpen
+          ? (
+            <Calendar
+              inputDate={this.inputDate}
+              startDate={startDate}
+              endDate={endDate}
+              minBookingLength={listing.minBookingLength}
+            />
+          )
+          : '' }
         <div>
           Guests
         </div>
         <SelectorBox>
           Guests selector
         </SelectorBox>
-        <div>
-          cost 1
-        </div>
-        <hr />
-        <div>
-          cost 2
-        </div>
-        <hr />
-        <div>
-          cost 3
-        </div>
-        <hr />
-        <div>
-          Total         $123
-        </div>
+        {(startDate && endDate) && <Costs />}
         <BookButton>
           book!
         </BookButton>
