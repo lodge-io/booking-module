@@ -82,7 +82,7 @@ class Booking extends React.Component {
     }
     if ((startDate && selecting === 1) || (endDate && selecting === 0)) {
       if ((selecting === 1 && this.isInvalidBooking(startDate, date))
-        || (selecting === 0 && this.isInvalidBooking(date, startDate))) {
+        || (selecting === 0 && this.isInvalidBooking(date, endDate))) {
         this.setState({ endDate: null, selecting: 1 });
       } else {
         this.setState({ calOpen: false, selecting: -1 });
