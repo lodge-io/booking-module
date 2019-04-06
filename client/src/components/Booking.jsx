@@ -4,6 +4,7 @@ import moment from 'moment';
 import Calendar from './Calendar.jsx';
 import Costs from './Price.jsx';
 import Review from './Review.jsx';
+import GuestSelect from './GuestSelect.jsx';
 
 const utcMoment = moment.utc;
 
@@ -58,12 +59,15 @@ class Booking extends React.Component {
       selecting: -1,
       calOpen: false,
       guestSelectOpen: false,
-      guests: {},
-      showCost:false
+      guests: { adults: 1, children: 0, infants: 0 },
+
     };
     this.handleStartDateClick = this.handleStartDateClick.bind(this);
     this.handleEndDateClick = this.handleEndDateClick.bind(this);
     this.inputDate = this.inputDate.bind(this);
+    this.openGuestSelect = this.openGuestSelect.bind(this);
+    this.closeGuestSelect = this.closeGuestSelect.bind(this);
+    this.setGuestCount = this.setGuestCount.bind(this);
   }
 
   componentDidMount() {
@@ -121,6 +125,9 @@ class Booking extends React.Component {
   }
 
   isInvalidBooking(startDate, endDate) {
+    if (startDate === null || endDate === null) {
+      return true;
+    }
     const { listing, guests } = this.state;
     const { minBookingLength, maxBookingLength, maxGuests } = listing.requirements;
     const { bookings } = listing;
@@ -154,9 +161,45 @@ class Booking extends React.Component {
     this.setState({ calOpen: true, selecting: 1 });
   }
 
+  openGuestSelect() {
+    this.setState({ guestSelectOpen: true });
+  }
+
+  closeGuestSelect() {
+    this.setState({ guestSelectOpen: false });
+  }
+
+  setGuestCount(type, count) {
+    const { guests, listing } = this.state;
+    if (typeof guests[type] !== 'undefined') {
+      if (type === 'infants') {
+        guests.infants = Math.max(0, Math.min(count, 5));
+        this.setState({ guests });
+      } else {
+        const { maxGuests } = listing.requirements;
+        if (type === 'adults' && count > 0 && count + guests.children <= (maxGuests || 16)) {
+          guests.adults = count;
+          this.setState({ guests });
+        } else if (type === 'children' && count >= 0 && count + guests.adults <= (maxGuests || 16)) {
+          guests.children = count;
+          this.setState({ guests });
+        }
+      }
+    } 
+  }
+
+  handleBook() {
+    const { startDate, endDate } = this.state;
+    if (!this.isInvalidBooking(startDate, endDate)) {
+      //post here
+    } else {
+      this.setState({ selecting: 0, calOpen: true });
+    }
+  }
+
   render() {
     const {
-      calOpen, listing, selecting, startDate, endDate, failed,
+      calOpen, listing, selecting, startDate, endDate, failed, guestSelectOpen, guests,
     } = this.state;
     if (failed) {
       return <div>Load failed!</div>;
@@ -203,9 +246,13 @@ class Booking extends React.Component {
         <div>
           Guests
         </div>
-        <SelectorBox>
+        <SelectorBox onClick={this.openGuestSelect}>
           Guests selector
         </SelectorBox>
+        {guestSelectOpen
+          ? <GuestSelect guests={guests} setGuestCount={this.setGuestCount} close={this.closeGuestSelect} />
+          : ''}
+
         {(startDate && endDate)
           ? (
             <Costs
