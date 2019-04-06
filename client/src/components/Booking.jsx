@@ -206,7 +206,16 @@ class Booking extends React.Component {
         <SelectorBox>
           Guests selector
         </SelectorBox>
-        {(startDate && endDate) && <Costs />}
+        {(startDate && endDate)
+          ? (
+            <Costs
+              duration={endDate.diff(startDate, 'days')}
+              price={listing.price}
+              fees={listing.fees}
+              taxes={listing.taxes}
+            />
+          )
+          : ''}
         <BookButton>
           book!
         </BookButton>
