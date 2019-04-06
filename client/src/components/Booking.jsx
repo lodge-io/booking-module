@@ -72,11 +72,31 @@ class Booking extends React.Component {
     if (!this.state.listing) {
       fetch(`/listings/${this.state.id}`)
         .then(res => res.json())
-        .then(listing => this.setState({ listing }));
+        .then(listing => this.setState({ listing }))
+        .catch(() => this.setState({ loadFailed: true}));
     }
     // load listing
   }
 
+  setGuestCount(type, count) {
+    console.log(type, count, this.state.guests);
+    const { guests, listing } = this.state;
+    if (typeof guests[type] !== 'undefined') {
+      if (type === 'infants') {
+        guests.infants = Math.max(0, Math.min(count, 5));
+        this.setState({ guests });
+      } else {
+        const { maxGuests } = listing.requirements;
+        if (type === 'adults') {
+          guests.adults = Math.max(1, Math.min(count, maxGuests || 16 - guests.children));
+          this.setState({ guests });
+        } else if (type === 'children') {
+          guests.children = Math.max(0, Math.min(count, maxGuests || 16 - guests.adults));
+          this.setState({ guests });
+        }
+      }
+    }
+  }
 
 
   isInvalidDate(date) {
@@ -115,7 +135,7 @@ class Booking extends React.Component {
     }
     if (minBookingLength && endDate.diff(startDate, 'days') < minBookingLength) {
       return true;
-    } 
+    }
     if (maxBookingLength && endDate.diff(startDate, 'days') > maxBookingLength) {
       return true;
     }
@@ -148,25 +168,6 @@ class Booking extends React.Component {
     this.setState({ guestSelectOpen: false });
   }
 
-  setGuestCount(type, count) {
-    const { guests, listing } = this.state;
-    if (typeof guests[type] !== 'undefined') {
-      if (type === 'infants') {
-        guests.infants = Math.max(0, Math.min(count, 5));
-        this.setState({ guests });
-      } else {
-        const { maxGuests } = listing.requirements;
-        if (type === 'adults' && count > 0 && count + guests.children <= (maxGuests || 16)) {
-          guests.adults = count;
-          this.setState({ guests });
-        } else if (type === 'children' && count >= 0 && count + guests.adults <= (maxGuests || 16)) {
-          guests.children = count;
-          this.setState({ guests });
-        }
-      }
-    }
-  }
-
   inputDate(date) {
     const { startDate, endDate, selecting } = this.state;
     if (this.isInvalidDate(date)) {
@@ -188,20 +189,11 @@ class Booking extends React.Component {
     }
   }
 
-  handleBook() {
-    const { startDate, endDate } = this.state;
-    if (!this.isInvalidBooking(startDate, endDate)) {
-      // post here
-    } else {
-      this.setState({ selecting: 0, calOpen: true });
-    }
-  }
-
   render() {
     const {
-      calOpen, listing, selecting, startDate, endDate, failed, guestSelectOpen, guests,
+      calOpen, listing, selecting, startDate, endDate, loadFailed, guestSelectOpen, guests,
     } = this.state;
-    if (failed) {
+    if (loadFailed) {
       return <div>Load failed!</div>;
     }
     if (!listing) {

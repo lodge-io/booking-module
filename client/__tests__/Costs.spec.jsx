@@ -20,8 +20,6 @@ describe('Price', () => {
       />,
     );
     const calc = (20 * 1 + 20 + 30 + 20) * 1.12 + 1000;
-    console.log(wrapper.find('.totalBookingCost').contains(`$${calc}`));
-    console.log(wrapper.find('.totalBookingCost').first().html());
     // expect(wrapper.find('.totalBookingCost').contains(`$${calc}`)).toBeTruthy();
     wrapper.unmount();
   });

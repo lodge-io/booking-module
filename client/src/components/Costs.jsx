@@ -51,7 +51,6 @@ const Costs = ({ duration, price, fees, taxes }) => {
   let totalFeeCost = 0;
 
   for (let fee in fees) {
-    console.log(fee, 'is name');
     feeArr.push([fee, fees[fee]]);
     totalFeeCost += fees[fee];
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import moment from 'moment';
 import Booking from '../src/components/Booking';
+import { wrap } from 'module';
 
 const basicListing = () => ({
   id: 123,
@@ -164,14 +165,43 @@ describe('Booking component', () => {
   });
 
   it('should show loading before listing is loaded and load failed', () => {
+    window.fetch = () => new Promise((a, b) => { b(); });
+
     const wrapper = shallow(<Booking />);
     expect(wrapper.state().listing).toBeFalsy();
     return new Promise((accept, reject) => {
       setTimeout(() => {
-        expect(wrapper.state().failed).toBeTruthy();
+        expect(wrapper.state().loadFailed).toBeTruthy();
         accept();
       }, 100);
     });
+  });
+
+  it('should restrict guest counts to valid amounts', () => {
+    const wrapper = shallow(<Booking listing={basicListing()} />);
+    wrapper.instance().setGuestCount('adults', 0);
+    expect(wrapper.state().guests.adults).toBe(1);
+    wrapper.instance().setGuestCount('children', -1);
+    expect(wrapper.state().guests.children).toBe(0);
+    wrapper.instance().setGuestCount('infants', -1);
+    expect(wrapper.state().guests.infants).toBe(0);
+
+    wrapper.instance().setGuestCount('adults', 17);
+    expect(wrapper.state().guests.adults).toBe(16);
+    wrapper.instance().setGuestCount('children', 10);
+    expect(wrapper.state().guests.children).toBe(0);
+
+    wrapper.instance().setGuestCount('adults', 5);
+    // console.log(wrapper.state().guests());
+    wrapper.instance().setGuestCount('children', 5);
+    console.log(wrapper.state().guests);
+    expect(wrapper.state().guests.adults).toBe(5);
+    expect(wrapper.state().guests.children).toBe(5);
+
+    wrapper.instance().setGuestCount('infants', 10);
+    expect(wrapper.state().guests.infants).toBe(5);
+
+
   });
 
   xit('on booking button press with invalid range, should open calendar with first date selecting', () => {
