@@ -117,7 +117,7 @@ class Calendar extends React.Component {
       return { month, year };
     });
   }
-  
+
 
 
   render() {
@@ -146,7 +146,6 @@ class Calendar extends React.Component {
                 onMouseOver={() => console.log(myDate)}
                 onFocus={() => console.log(myDate)}
                 onClick={() => {
-                  console.log(createDate(year, month, myDate).format());
                   inputDate(createDate(year, month, myDate));
                 }
                 }

@@ -30,418 +30,420 @@ exports[`Calendar renders correctly 1`] = `
   <table
     className="sc-EHOje hhiHiM"
   >
-    <tr>
-      <th
-        className="sc-ifAKCX cQiRZG"
-      >
-        Su
-      </th>
-      <th
-        className="sc-ifAKCX cQiRZG"
-      >
-        Mo
-      </th>
-      <th
-        className="sc-ifAKCX cQiRZG"
-      >
-        Tu
-      </th>
-      <th
-        className="sc-ifAKCX cQiRZG"
-      >
-        We
-      </th>
-      <th
-        className="sc-ifAKCX cQiRZG"
-      >
-        Th
-      </th>
-      <th
-        className="sc-ifAKCX cQiRZG"
-      >
-        Fr
-      </th>
-      <th
-        className="sc-ifAKCX cQiRZG"
-      >
-        Sa
-      </th>
-    </tr>
-    <tr>
-      <td />
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+    <tbody>
+      <tr>
+        <th
+          className="sc-ifAKCX cQiRZG"
         >
-          1
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          Su
+        </th>
+        <th
+          className="sc-ifAKCX cQiRZG"
         >
-          2
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          Mo
+        </th>
+        <th
+          className="sc-ifAKCX cQiRZG"
         >
-          3
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          Tu
+        </th>
+        <th
+          className="sc-ifAKCX cQiRZG"
         >
-          4
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          We
+        </th>
+        <th
+          className="sc-ifAKCX cQiRZG"
         >
-          5
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          Th
+        </th>
+        <th
+          className="sc-ifAKCX cQiRZG"
         >
-          6
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          Fr
+        </th>
+        <th
+          className="sc-ifAKCX cQiRZG"
         >
-          7
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          Sa
+        </th>
+      </tr>
+      <tr>
+        <td />
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          8
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            1
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          9
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            2
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          10
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            3
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          11
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            4
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          12
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            5
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          13
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            6
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          14
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            7
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          15
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            8
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          16
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            9
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          17
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            10
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          18
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            11
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          19
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            12
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          20
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            13
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          21
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            14
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          22
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            15
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          23
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            16
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          24
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            17
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          25
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            18
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          26
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            19
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          27
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            20
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          28
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            21
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          29
-        </div>
-      </td>
-      <td
-        className="sc-bwzfXH cDziqG"
-      >
-        <div
-          className="a-date sc-bdVaJa iUxxxf"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            22
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
         >
-          30
-        </div>
-      </td>
-      <td />
-      <td />
-      <td />
-      <td />
-    </tr>
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            23
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
+        >
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            24
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
+        >
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            25
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
+        >
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            26
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
+        >
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            27
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td
+          className="sc-bwzfXH cDziqG"
+        >
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            28
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
+        >
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            29
+          </div>
+        </td>
+        <td
+          className="sc-bwzfXH cDziqG"
+        >
+          <div
+            className="a-date sc-bdVaJa iUxxxf"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            30
+          </div>
+        </td>
+        <td />
+        <td />
+        <td />
+        <td />
+      </tr>
+    </tbody>
   </table>
 </div>
 `;
