@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import moment from 'moment';
 import Calendar from './Calendar.jsx';
 import Costs from './Price.jsx';
+import Review from './Review.jsx';
 
 const utcMoment = moment.utc;
 
@@ -42,12 +43,15 @@ const BookButton = styled.button`
   height:40px;
 `;
 
+
+
 class Booking extends React.Component {
   constructor(props) {
     super(props);
     // invoke api call to get listing data
     this.state = {
       listing: this.props.listing || null,
+      id: this.props.id || null,
       loadFailed: false,
       startDate: null,
       endDate: null,
@@ -64,7 +68,9 @@ class Booking extends React.Component {
 
   componentDidMount() {
     if (!this.state.listing) {
-      // fetch
+      fetch(`/listings/${this.state.id}`)
+        .then(res => res.json())
+        .then(listing => this.setState({ listing }));
     }
     // load listing
   }
@@ -158,8 +164,10 @@ class Booking extends React.Component {
     if (!listing) {
       return <div>listing loading</div>;
     }
+    const {avgReview, numReviews } = listing.reviews;
     return (
       <BookingDiv>
+
         <div>
           $
           {listing ? listing.price : ' '}
@@ -167,7 +175,7 @@ class Booking extends React.Component {
           per night
         </div>
         <div>
-          ***** 123
+          <Review avgReview={avgReview} numReviews={numReviews} />
         </div>
         <hr />
         <div>

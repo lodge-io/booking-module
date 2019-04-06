@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
+app.use(express.static('client/dist'));
 app.use(bodyParser.json());
 
 app.get('/listings/:listingId', (req, res) => {
