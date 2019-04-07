@@ -1,3 +1,7 @@
+const moment = require('moment');
+
+const utcMoment = moment;
+
 function odds(num) {
   return Math.random() < num;
 }
@@ -11,7 +15,7 @@ function randChoice(arr) {
 }
 
 function randomDateInc(date, lo, hi) {
-  date.setDate(date.getDate() + randInt(lo, hi));
+  date.add(randInt(lo, hi), 'days');
 }
 
 function genUserId() {
@@ -94,19 +98,17 @@ function getRandomPrice() {
 function genBookingArr() {
   const populatrity = Math.random() * Math.random();
   let avgWait = 1 / populatrity;
-  const now = new Date(Date.now());
-  const today = `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
-  const date = new Date(today);
-  randomDateInc(date, 0, 2 * avgWait);
+  const today = moment().utcOffset(0).startOf('day');
+  let date = moment(today);
 
   const bookingArr = [];
   let newBooking;
   const YEAR_IN_MILLI = 3.154e+10;
-  while (date.getTime() - now.getTime() < 2 * YEAR_IN_MILLI) {
+  while (date.valueOf() - today.valueOf() < 2 * YEAR_IN_MILLI) {
     newBooking = {};
-    newBooking.startDate = new Date(date);
+    newBooking.startDate = date.toDate();
     randomDateInc(date, 1, randInt(2, 10));
-    newBooking.endDate = new Date(date);
+    newBooking.endDate = date.toDate();
     newBooking.totalBookingCost = 5 * (Math.random() + 0.5) * getRandomPrice();
     newBooking.userId = genUserId();
     newBooking.guests = {
@@ -116,7 +118,7 @@ function genBookingArr() {
     };
     bookingArr.push(newBooking);
     randomDateInc(date, 0, 2 * avgWait);
-    avgWait *= 1 + ((date.getTime() - now.getTime()) / (YEAR_IN_MILLI * 4));
+    avgWait *= 1 + ((date.valueOf() - today.valueOf()) / (YEAR_IN_MILLI * 4));
   }
   return bookingArr;
 }
@@ -141,7 +143,6 @@ function genListingArr(num = 100) {
   }
   return arr;
 }
-
 
 module.exports = {
   odds,

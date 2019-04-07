@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
-import { create } from 'domain';
-
 
 const utcMoment = moment.utc;
 
@@ -37,17 +35,19 @@ function createDate(year, month, day) {
 }
 
 const CalendarBox = styled.div`
-  color: palevioletred;
   padding: 0.25em 0.25em;
   text-align: center;
 `;
 const TableD = styled.td`
-  border: 1px solid green;
-  width: 42px; height:42px; 
-  background: pink;
-  &:hover{
-    background-color: blue;
-  }
+  border: 1px solid grey;
+  width: 42px; height:42px;
+  background-color: white;
+`;
+
+const TableDDisabled = styled.td`
+  border: 1px solid grey;
+  width: 42px; height:42px;
+  background-color: gray;
 `;
 
 const ArrowSpan = styled.span`
@@ -66,10 +66,8 @@ const MonthSpan = styled.span`
 
 const Head = styled.th`
   width: 14%;
-  background-color:green;
 `;
 const Table = styled.table`
-  background-color:orange;
   width:100%;
   padding:0px;
   border-collapse: collapse;
@@ -79,17 +77,48 @@ const TopRow = styled.span`
   flex-direction: row;
 `;
 const TableHolder = styled.div`
-  background-color:blue;
   width: 300px;
   padding: 20px;
   border-radius: 3px;
 
 `;
 
+const CalendarDate = ({ year, month, date, available, inputDate, selecting }) => {
+  if (available) {
+    return (
+      <TableD key={date}>
+        <CalendarBox
+          key={date}
+          className="a-date"
+          onClick={() => {
+            inputDate(createDate(year, month, date));
+          }
+          }
+        >
+          {date}
+        </CalendarBox>
+      </TableD>
+    );
+  }
+
+  return (
+    <TableDDisabled key={date}>
+      <CalendarBox
+        key={date}
+        className="a-date"
+      >
+        {date}
+      </CalendarBox>
+    </TableDDisabled>
+  );
+
+};
+
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { month: getCurrMonth(), year: getCurrYear() };
+    this.isValidDate = this.isValidDate.bind(this);
   }
 
   nextMonth() {
@@ -118,10 +147,29 @@ class Calendar extends React.Component {
     });
   }
 
-
+  isValidDate(year, month, day) {
+    const { bookings, selecting } = this.props;
+    const date = utcMoment(`${year}/${month + 1}/${day}`);
+    const now = utcMoment().startOf('day');
+    if (date - now < 0) {
+      return false;
+    }
+    if (bookings.length === 0) {
+      return true;
+    }
+    let i = 0;
+    if (selecting === 0) {
+      while (bookings[i].endDate.diff(date) <= 0) { i += 1; }
+      if (bookings[i].startDate <= date) { return false; }
+    } else {
+      while (bookings[i].endDate.diff(date) < 0) { i += 1; }
+      if (bookings[i].startDate < date) { return false; }
+    }
+    return true;
+  }
 
   render() {
-    const { year, month, hovered } = this.state;
+    const { year, month } = this.state;
     const { inputDate } = this.props;
     const monthName = numToMonth(month);
     let date = 1;
@@ -139,18 +187,13 @@ class Calendar extends React.Component {
         } else {
           const myDate = date;
           week.push(
-            <TableD key={myDate}>
-              <CalendarBox
-                key={myDate}
-                className="a-date"
-                onClick={() => {
-                  inputDate(createDate(year, month, myDate));
-                }
-                }
-              >
-                {myDate}
-              </CalendarBox>
-            </TableD>,
+            <CalendarDate
+              available={(this.isValidDate(year, month, myDate))}
+              year={year}
+              month={month}
+              date={myDate}
+              inputDate={inputDate}
+            />,
           );
           date += 1;
         }

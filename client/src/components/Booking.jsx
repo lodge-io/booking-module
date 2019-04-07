@@ -81,7 +81,15 @@ class Booking extends React.Component {
     if (!listing) {
       fetch(`/listings/${id}`)
         .then(res => res.json())
-        .then(newListing => this.setState({ listing: newListing }))
+        .then((newListing) => {
+          newListing.bookings.forEach((booking) => {
+            const a = booking;
+            a.endDate = utcMoment(booking.endDate);
+            a.startDate = utcMoment(booking.startDate);
+            return a;
+          });
+          this.setState({ listing: newListing });
+        })
         .catch(() => this.setState({ loadFailed: true }));
     }
     // load listing
@@ -243,6 +251,7 @@ class Booking extends React.Component {
               endDate={endDate}
               minBookingLength={listing.minBookingLength}
               bookings={listing.bookings}
+              selecting={selecting}
             />
           )
           : '' }
