@@ -46,12 +46,14 @@ const TableD = styled.td`
     background-color: #00A699;
   }
 `;
+TableD.displayName = 'TableD';
 
 const TableDDisabled = styled.td`
   border: 1px solid #EBEBEB;
   width: 42px; height:42px;
   color: #D8D8D8;
 `;
+TableDDisabled.displayName = 'TableDDisabled';
 
 const ArrowSpan = styled.span`
   flex-grow: 1;
@@ -162,11 +164,11 @@ class Calendar extends React.Component {
     let i = 0;
     if (selecting === 0) {
       while (i < bookings.length && bookings[i].endDate.diff(date) <= 0) { i += 1; }
-      if (i === bookings.length) {return true; }
+      if (i === bookings.length) { return true; }
       if (bookings[i].startDate <= date) { return false; }
     } else {
       while (i < bookings.length && bookings[i].endDate.diff(date) < 0) { i += 1; }
-      if (i === bookings.length) {return true; }
+      if (i === bookings.length) { return true; }
       if (bookings[i].startDate < date) { return false; }
     }
     return true;

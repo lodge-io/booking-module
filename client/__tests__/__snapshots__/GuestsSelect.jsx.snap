@@ -5,21 +5,29 @@ exports[`GuestSelect renders correctly 1`] = `
   className="sc-bdVaJa hyCpos"
 >
   <div
-    className="sc-bwzfXH jIEWCi"
+    className="sc-bwzfXH iHIBJT"
   >
-    <div>
+    <div
+      className="sc-htpNat fIvgnp"
+    >
       Adults
     </div>
-    <div />
-    <div>
+    <div
+      className="sc-htpNat fIvgnp"
+    />
+    <div
+      className="sc-htpNat fIvgnp"
+    >
       <button
+        className="sc-bxivhb bGzvjj"
         onClick={[Function]}
         type="button"
       >
         -
       </button>
-      1
+        1  
       <button
+        className="sc-bxivhb bGzvjj"
         onClick={[Function]}
         type="button"
       >
@@ -28,21 +36,29 @@ exports[`GuestSelect renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-bwzfXH jIEWCi"
+    className="sc-bwzfXH iHIBJT"
   >
-    <div>
+    <div
+      className="sc-htpNat fIvgnp"
+    >
       Children
     </div>
-    <div />
-    <div>
+    <div
+      className="sc-htpNat fIvgnp"
+    />
+    <div
+      className="sc-htpNat fIvgnp"
+    >
       <button
+        className="sc-bxivhb bGzvjj"
         onClick={[Function]}
         type="button"
       >
         -
       </button>
-      0
+        0  
       <button
+        className="sc-bxivhb bGzvjj"
         onClick={[Function]}
         type="button"
       >
@@ -51,21 +67,29 @@ exports[`GuestSelect renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-bwzfXH jIEWCi"
+    className="sc-bwzfXH iHIBJT"
   >
-    <div>
+    <div
+      className="sc-htpNat fIvgnp"
+    >
       Infants
     </div>
-    <div />
-    <div>
+    <div
+      className="sc-htpNat fIvgnp"
+    />
+    <div
+      className="sc-htpNat fIvgnp"
+    >
       <button
+        className="sc-bxivhb bGzvjj"
         onClick={[Function]}
         type="button"
       >
         -
       </button>
-      3
+        3  
       <button
+        className="sc-bxivhb bGzvjj"
         onClick={[Function]}
         type="button"
       >
@@ -74,6 +98,7 @@ exports[`GuestSelect renders correctly 1`] = `
     </div>
   </div>
   <div
+    className="sc-ifAKCX fpwRZh"
     onClick={[Function]}
   >
     close

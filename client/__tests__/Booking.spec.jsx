@@ -200,6 +200,19 @@ describe('Booking component', () => {
 
     wrapper.instance().setGuestCount('infants', 10);
     expect(wrapper.state().guests.infants).toBe(5);
+  });
+
+  it('should be able to toggle and close guest select', () => {
+    const wrapper = shallow(<Booking listing={basicListing()} />);
+    wrapper.instance().toggleGuestSelect();
+    expect(wrapper.state().guestSelectOpen).toBeTruthy();
+    wrapper.instance().toggleGuestSelect();
+    expect(wrapper.state().guestSelectOpen).toBeFalsy();
+    wrapper.instance().closeGuestSelect();
+    expect(wrapper.state().guestSelectOpen).toBeFalsy();
+    wrapper.instance().toggleGuestSelect();
+    wrapper.instance().closeGuestSelect();
+    expect(wrapper.state().guestSelectOpen).toBeFalsy();
 
 
   });

@@ -71,9 +71,9 @@ class Booking extends React.Component {
     this.handleStartDateClick = this.handleStartDateClick.bind(this);
     this.handleEndDateClick = this.handleEndDateClick.bind(this);
     this.inputDate = this.inputDate.bind(this);
-    this.openGuestSelect = this.openGuestSelect.bind(this);
     this.closeGuestSelect = this.closeGuestSelect.bind(this);
     this.setGuestCount = this.setGuestCount.bind(this);
+    this.toggleGuestSelect = this.toggleGuestSelect.bind(this);
   }
 
   componentDidMount() {
@@ -176,8 +176,9 @@ class Booking extends React.Component {
     this.setState({ calOpen: true, selecting: 1 });
   }
 
-  openGuestSelect() {
-    this.setState({ guestSelectOpen: true });
+  toggleGuestSelect() {
+    const { guestSelectOpen } = this.state;
+    this.setState({ guestSelectOpen: !guestSelectOpen });
   }
 
   closeGuestSelect() {
@@ -233,7 +234,7 @@ class Booking extends React.Component {
           Dates
         </div>
         <SelectorBox>
-          <DateSelect className="dateSelectStart" selected={selecting === 0} onClick={this.handleStartDateClick}> 
+          <DateSelect className="dateSelectStart" selected={selecting === 0} onClick={this.handleStartDateClick}>
             {startDate ? startDate.format('MM/DD/YYYY') : ''}
           </DateSelect>
           <MiddleArrow viewBox="0 0 24 24" focusable="false">
@@ -258,7 +259,7 @@ class Booking extends React.Component {
         <div>
           Guests
         </div>
-        <SelectorBox onClick={this.openGuestSelect}>
+        <SelectorBox onClick={this.toggleGuestSelect}>
           {`${guests.adults + guests.children} guests`}
           {guests.infants ? `, ${guests.infants} infants` : ''}
 

@@ -4,6 +4,8 @@ import renderer from 'react-test-renderer';
 import moment from 'moment';
 import Calendar from '../src/components/Calendar';
 
+const utcMoment = moment.utc;
+
 describe('Calendar', () => {
   it('renders in the dom', () => {
     const res = shallow(<Calendar bookings={[]} />).find('.calTitleSpan').contains(2019);
@@ -67,6 +69,55 @@ describe('Calendar', () => {
     expect(title.contains(testMonth)).toBeTruthy();
     expect(title.contains(testYear)).toBeTruthy();  
   });
+
+  it('should disable days in the past if no bookings', () => {
+    const allDaysWrapper = mount(<Calendar bookings={[]} />);
+    expect(allDaysWrapper.find('TableD').length).toBeGreaterThanOrEqual(utcMoment().daysInMonth() - utcMoment().date() + 1);
+    expect(allDaysWrapper.find('TableDDisabled').length).toBe(utcMoment().date() - 1);
+    allDaysWrapper.unmount();
+  });
+
+  it('should disable dates which are covered by another booking', () => {
+    const bookings = [{
+      startDate: utcMoment().startOf('day').subtract(32, 'days'),
+      endDate: utcMoment().startOf('day').add(32, 'days'),
+    }];
+    const noDaysWrapper = mount(<Calendar bookings={bookings} />);
+    expect(noDaysWrapper.find('TableDDisabled').length).toBeGreaterThanOrEqual(utcMoment().daysInMonth());
+    expect(noDaysWrapper.find('TableD').length).toBe(0);
+    noDaysWrapper.unmount();
+  });
+
+  it('should correctly handle rendering dates past the last booking', () => {
+    const bookingLength = 20;
+    const bookings = [{
+      startDate: utcMoment().startOf('month'),
+      endDate: utcMoment().startOf('month').add(bookingLength, 'days'),
+    }];
+    const noDaysWrapper = mount(<Calendar bookings={bookings} selecting={0} />);
+    const takenDays = Math.max(utcMoment().date() - 1, bookingLength);
+    const openDays = utcMoment().daysInMonth() - takenDays;
+    expect(noDaysWrapper.find('TableDDisabled').length).toBe(takenDays);
+    expect(noDaysWrapper.find('TableD').length).toBe(openDays);
+    noDaysWrapper.unmount();
+  });
+
+  it('should correctly handle rendering dates past the last booking', () => {
+    const bookingLength = 20;
+    const bookings = [{
+      startDate: utcMoment().startOf('month'),
+      endDate: utcMoment().startOf('month').add(bookingLength, 'days'),
+    }];
+    const noDaysWrapper = mount(<Calendar bookings={bookings} selecting={1} />);
+    const takenDays = Math.max(utcMoment().date() - 1, bookingLength + 1);
+    const openDays = utcMoment().daysInMonth() - takenDays;
+    expect(noDaysWrapper.find('TableDDisabled').length).toBe(takenDays);
+    expect(noDaysWrapper.find('TableD').length).toBe(openDays);
+    noDaysWrapper.unmount();
+  });
+
+
+
 
   it('renders correctly', () => {
     const tree = renderer
