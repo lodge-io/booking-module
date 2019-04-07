@@ -41,7 +41,8 @@ const CalendarBox = styled.div`
 const TableD = styled.td`
   border: 1px solid grey;
   width: 42px; height:42px;
-  background-color: white;
+  background-color: white;  
+
 `;
 
 const TableDDisabled = styled.td`
