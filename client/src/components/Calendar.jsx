@@ -39,16 +39,18 @@ const CalendarBox = styled.div`
   text-align: center;
 `;
 const TableD = styled.td`
-  border: 1px solid grey;
+  border: 1px solid #EBEBEB;
   width: 42px; height:42px;
   background-color: white;  
-
+  &:hover{
+    background-color: #00A699;
+  }
 `;
 
 const TableDDisabled = styled.td`
-  border: 1px solid grey;
+  border: 1px solid #EBEBEB;
   width: 42px; height:42px;
-  background-color: gray;
+  color: #D8D8D8;
 `;
 
 const ArrowSpan = styled.span`
@@ -81,7 +83,7 @@ const TableHolder = styled.div`
   width: 300px;
   padding: 20px;
   border-radius: 3px;
-
+  user-select: none;
 `;
 
 const CalendarDate = ({ year, month, date, available, inputDate, selecting }) => {
@@ -160,10 +162,12 @@ class Calendar extends React.Component {
     }
     let i = 0;
     if (selecting === 0) {
-      while (bookings[i].endDate.diff(date) <= 0) { i += 1; }
+      while (i < bookings.length && bookings[i].endDate.diff(date) <= 0) { i += 1; }
+      if (i === bookings.length) {return true; }
       if (bookings[i].startDate <= date) { return false; }
     } else {
-      while (bookings[i].endDate.diff(date) < 0) { i += 1; }
+      while (i < bookings.length && bookings[i].endDate.diff(date) < 0) { i += 1; }
+      if (i === bookings.length) {return true; }
       if (bookings[i].startDate < date) { return false; }
     }
     return true;

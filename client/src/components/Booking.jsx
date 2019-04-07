@@ -28,10 +28,10 @@ const SelectorBox = styled.div`
   `;
 
 const DateSelect = styled.div`
-  min-width:33%;
-  width: 33%;
+  min-width:40%;
+  width: 40%;
   border-radius: 3px;
-  background-color: ${props => (props.selected ? 'blue' : 'white')}
+  background-color: ${props => (props.selected ? '#99EDE6' : 'white')}
 `;
 
 const MiddleArrow = styled.svg`
@@ -39,7 +39,7 @@ const MiddleArrow = styled.svg`
   width: 24px;
   display: block; 
   fill: currentcolor;
-  width: 33%;
+  width: 20%;
 `;
 
 const BookButton = styled.button`
