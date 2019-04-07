@@ -2,68 +2,68 @@
 
 exports[`Calendar renders correctly 1`] = `
 <div
-  className="sc-gzVnrw dStQk"
+  className="sc-htoDjs ixOviw"
 >
   <span
-    className="sc-bZQynM gxEjMp"
+    className="sc-gzVnrw jKdxIN"
   >
     <span
-      className="lastMonth sc-htpNat kwiLFa"
+      className="lastMonth sc-bxivhb dwoOdW"
       onClick={[Function]}
     >
       &lt;
     </span>
     <span
-      className="calTitleSpan sc-bxivhb jXJJxg"
+      className="calTitleSpan sc-ifAKCX djMrCb"
     >
       April
        
       2019
     </span>
     <span
-      className="nextMonth sc-htpNat kwiLFa"
+      className="nextMonth sc-bxivhb dwoOdW"
       onClick={[Function]}
     >
       &gt;
     </span>
   </span>
   <table
-    className="sc-EHOje hhiHiM"
+    className="sc-bZQynM fOTTne"
   >
     <tbody>
       <tr>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           Su
         </th>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           Mo
         </th>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           Tu
         </th>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           We
         </th>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           Th
         </th>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           Fr
         </th>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           Sa
         </th>
@@ -71,61 +71,55 @@ exports[`Calendar renders correctly 1`] = `
       <tr>
         <td />
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
+            className="sc-bdVaJa faROED"
           >
             1
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
+            className="sc-bdVaJa faROED"
           >
             2
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
+            className="sc-bdVaJa faROED"
           >
             3
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
+            className="sc-bdVaJa faROED"
           >
             4
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
+            className="sc-bdVaJa faROED"
           >
             5
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
+            className="sc-bdVaJa faROED"
           >
             6
           </div>
@@ -133,70 +127,70 @@ exports[`Calendar renders correctly 1`] = `
       </tr>
       <tr>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             7
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             8
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             9
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             10
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             11
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             12
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             13
@@ -205,70 +199,70 @@ exports[`Calendar renders correctly 1`] = `
       </tr>
       <tr>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             14
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             15
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             16
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             17
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             18
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             19
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             20
@@ -277,70 +271,70 @@ exports[`Calendar renders correctly 1`] = `
       </tr>
       <tr>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             21
           </div>
-        </td> 
+        </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             22
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             23
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             24
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             25
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             26
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             27
@@ -349,30 +343,30 @@ exports[`Calendar renders correctly 1`] = `
       </tr>
       <tr>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             28
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             29
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
           >
             30

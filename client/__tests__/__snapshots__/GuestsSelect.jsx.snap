@@ -14,12 +14,14 @@ exports[`GuestSelect renders correctly 1`] = `
     <div>
       <button
         onClick={[Function]}
+        type="button"
       >
         -
       </button>
       1
       <button
         onClick={[Function]}
+        type="button"
       >
         +
       </button>
@@ -35,12 +37,14 @@ exports[`GuestSelect renders correctly 1`] = `
     <div>
       <button
         onClick={[Function]}
+        type="button"
       >
         -
       </button>
       0
       <button
         onClick={[Function]}
+        type="button"
       >
         +
       </button>
@@ -56,12 +60,14 @@ exports[`GuestSelect renders correctly 1`] = `
     <div>
       <button
         onClick={[Function]}
+        type="button"
       >
         -
       </button>
       3
       <button
         onClick={[Function]}
+        type="button"
       >
         +
       </button>

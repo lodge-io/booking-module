@@ -92,7 +92,7 @@ const CalendarDate = ({ year, month, date, available, inputDate, selecting }) =>
       <TableD key={date}>
         <CalendarBox
           key={date}
-          className="a-date"
+          className="clickableDate"
           onClick={() => {
             inputDate(createDate(year, month, date));
           }
@@ -108,7 +108,6 @@ const CalendarDate = ({ year, month, date, available, inputDate, selecting }) =>
     <TableDDisabled key={date}>
       <CalendarBox
         key={date}
-        className="a-date"
       >
         {date}
       </CalendarBox>

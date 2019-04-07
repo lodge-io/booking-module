@@ -1,12 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import moment from 'moment';
 import Calendar from '../src/components/Calendar';
 
 describe('Calendar', () => {
   it('renders in the dom', () => {
-    const res = shallow(<Calendar />).find('.calTitleSpan').contains(2019);
+    const res = shallow(<Calendar bookings={[]} />).find('.calTitleSpan').contains(2019);
     expect(res).toBeTruthy();
   });
 
@@ -14,8 +14,8 @@ describe('Calendar', () => {
 
     const mockListener = jest.fn(() => {});
 
-    const wrapper = shallow(<Calendar inputDate={mockListener}/>);
-    const dates = wrapper.find('.a-date');
+    const wrapper = mount(<Calendar bookings={[]} inputDate={mockListener}/>);
+    const dates = wrapper.find('.clickableDate');
     dates.at(0).simulate('click');
     dates.at(5).simulate('click');
     dates.at(23).simulate('click');
@@ -26,10 +26,11 @@ describe('Calendar', () => {
     expect(mockListener.mock.calls[1][0] instanceof moment).toBeTruthy();
     expect(mockListener.mock.calls[2][0] instanceof moment).toBeTruthy();
     expect(mockListener.mock.calls[3][0] instanceof moment).toBeTruthy();
+    wrapper.unmount();
   });
 
   it('should change month when next/last button clicked', () => {
-    const wrapper = shallow(<Calendar />);
+    const wrapper = shallow(<Calendar bookings={[]} />);
     let testYear = new Date(Date.now()).getFullYear();
     let testMonth = moment().format('MMMM');
     let title = wrapper.find('.calTitleSpan');
@@ -69,7 +70,7 @@ describe('Calendar', () => {
 
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Calendar />)
+      .create(<Calendar bookings={[]} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
