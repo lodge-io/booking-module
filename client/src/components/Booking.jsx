@@ -12,6 +12,7 @@ const BookingDiv = styled.div`
   width:330px;
   border:1px solid black;
   padding:24px;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
 `;
 
 const SelectorBox = styled.div`
@@ -23,6 +24,7 @@ const SelectorBox = styled.div`
   padding-left: 15px;
   display: flex;
   flex-direction: row;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
   `;
 
 const DateSelect = styled.div`
@@ -32,12 +34,17 @@ const DateSelect = styled.div`
   background-color: ${props => (props.selected ? 'blue' : 'white')}
 `;
 
-const MiddleArrow = styled.div`
+const MiddleArrow = styled.svg`
+  height: 24px;
+  width: 24px;
+  display: block; 
+  fill: currentcolor;
   width: 33%;
 `;
 
 const BookButton = styled.button`
-  background-color:red;
+  margin-top: 20px;
+  background-color:#FF5A5F;
   color:white;
   width:100%;
   border-radius: 7px;
@@ -221,8 +228,10 @@ class Booking extends React.Component {
           <DateSelect className="dateSelectStart" selected={selecting === 0} onClick={this.handleStartDateClick}> 
             {startDate ? startDate.format('MM/DD/YYYY') : ''}
           </DateSelect>
-          <MiddleArrow>-&gt;</MiddleArrow>
-          <DateSelect className="dateSelectEnd" selected={selecting === 1} onClick={this.handleEndDateClick}> 
+          <MiddleArrow viewBox="0 0 24 24" focusable="false">
+            <path d="m0 12.5a.5.5 0 0 0 .5.5h21.79l-6.15 6.15a.5.5 0 1 0 .71.71l7-7v-.01a.5.5 0 0 0 .14-.35.5.5 0 0 0 -.14-.35v-.01l-7-7a .5.5 0 0 0 -.71.71l6.15 6.15h-21.79a.5.5 0 0 0 -.5.5z" fillRule="evenodd" />
+          </MiddleArrow>
+          <DateSelect className="dateSelectEnd" selected={selecting === 1} onClick={this.handleEndDateClick}>
             {endDate ? endDate.format('MM/DD/YYYY') : ''}
           </DateSelect>
         </SelectorBox>
@@ -233,6 +242,7 @@ class Booking extends React.Component {
               startDate={startDate}
               endDate={endDate}
               minBookingLength={listing.minBookingLength}
+              bookings={listing.bookings}
             />
           )
           : '' }
@@ -240,7 +250,9 @@ class Booking extends React.Component {
           Guests
         </div>
         <SelectorBox onClick={this.openGuestSelect}>
-          Guests selector
+          {`${guests.adults + guests.children} guests`}
+          {guests.infants ? `, ${guests.infants} infants` : ''}
+
         </SelectorBox>
         {guestSelectOpen
           ? (
@@ -263,7 +275,7 @@ class Booking extends React.Component {
           )
           : ''}
         <BookButton>
-          book!
+          Book!
         </BookButton>
       </BookingDiv>
     );

@@ -45,7 +45,7 @@ const Costs = ({
   const baseStayCost = price * duration;
   const feeArr = [];
   let totalFeeCost = 0;
-  Object.keys(fees).forEach((fee) => { fee.push([fee, fees[fee]]); totalFeeCost += fees[fee]; });
+  Object.keys(fees).forEach((fee) => { feeArr.push([fee, fees[fee]]); totalFeeCost += fees[fee]; });
 
   const totalTaxCost = parseInt(((baseStayCost + totalFeeCost)
     * getTaxRate(taxes)
