@@ -47,10 +47,11 @@ const BookButton = styled.button`
 class Booking extends React.Component {
   constructor(props) {
     super(props);
+    const { listing, id } = this.props;
     // invoke api call to get listing data
     this.state = {
-      listing: this.props.listing || null,
-      id: this.props.id || null,
+      listing: listing || null,
+      id: id || null,
       loadFailed: false,
       startDate: null,
       endDate: null,
@@ -69,17 +70,17 @@ class Booking extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.state.listing) {
-      fetch(`/listings/${this.state.id}`)
+    const { listing, id } = this.state;
+    if (!listing) {
+      fetch(`/listings/${id}`)
         .then(res => res.json())
-        .then(listing => this.setState({ listing }))
-        .catch(() => this.setState({ loadFailed: true}));
+        .then(newListing => this.setState({ listing: newListing }))
+        .catch(() => this.setState({ loadFailed: true }));
     }
     // load listing
   }
 
   setGuestCount(type, count) {
-    console.log(type, count, this.state.guests);
     const { guests, listing } = this.state;
     if (typeof guests[type] !== 'undefined') {
       if (type === 'infants') {
@@ -127,8 +128,8 @@ class Booking extends React.Component {
     if (startDate === null || endDate === null) {
       return true;
     }
-    const { listing, guests } = this.state;
-    const { minBookingLength, maxBookingLength, maxGuests } = listing.requirements;
+    const { listing } = this.state;
+    const { minBookingLength, maxBookingLength } = listing.requirements;
     const { bookings } = listing;
     if (startDate >= endDate) {
       return true;
@@ -199,7 +200,7 @@ class Booking extends React.Component {
     if (!listing) {
       return <div>listing loading</div>;
     }
-    const {avgReview, numReviews } = listing.reviews;
+    const { avgReview, numReviews } = listing.reviews;
     return (
       <BookingDiv>
 
@@ -242,7 +243,13 @@ class Booking extends React.Component {
           Guests selector
         </SelectorBox>
         {guestSelectOpen
-          ? <GuestSelect guests={guests} setGuestCount={this.setGuestCount} close={this.closeGuestSelect} />
+          ? (
+            <GuestSelect
+              guests={guests}
+              setGuestCount={this.setGuestCount}
+              close={this.closeGuestSelect}
+            />
+          )
           : ''}
 
         {(startDate && endDate)

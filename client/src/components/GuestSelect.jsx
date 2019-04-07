@@ -14,11 +14,11 @@ const GuestTypeRow = styled.div`
 const GuestTypeEntry = ({ type, count, setGuestCount }) => (
   <GuestTypeRow>
     <div>{type}</div>
-    <div></div>
+    <div />
     <div>
-      <button onClick={() => setGuestCount(type.toLowerCase(), count - 1)}>-</button>
+      <button type="button" onClick={() => setGuestCount(type.toLowerCase(), count - 1)}>-</button>
       {count}
-      <button onClick={() => setGuestCount(type.toLowerCase(), count + 1)}>+</button>
+      <button type="button" onClick={() => setGuestCount(type.toLowerCase(), count + 1)}>+</button>
     </div>
   </GuestTypeRow>
 );

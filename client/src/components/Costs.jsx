@@ -16,7 +16,7 @@ const CostLine = ({ title, cost, isTotal }) => (
       <RowItem isCost={false}>
         {title}
       </RowItem>
-      <RowItem className={isTotal?"totalBookingCost":""} isCost>
+      <RowItem className={isTotal ? 'totalBookingCost' : ''} isCost>
         {`$${cost}`}
       </RowItem>
     </Row>
@@ -26,34 +26,27 @@ const CostLine = ({ title, cost, isTotal }) => (
 
 function getTaxRate(taxes) {
   let rate = 0;
-  for (let tax of taxes) {
-    if (tax.type === 'percent') {
-      rate += tax.rate;
-    }
-  }
+  taxes.forEach((tax) => { rate += tax.type === 'percent' ? tax.rate : 0; });
   return rate;
 }
 
 function getFlatTax(taxes) {
   let total = 0;
-  for (let tax of taxes) {
-    if (tax.type === 'flat') {
-      total += tax.amount;
-    }
-  }
+
+  taxes.forEach((tax) => { total += tax.type === 'flat' ? tax.amount : 0; });
+
   return total;
 }
 
 
-const Costs = ({ duration, price, fees, taxes }) => {
+const Costs = ({
+  duration, price, fees, taxes 
+}) => {
   const baseStayCost = price * duration;
   const feeArr = [];
   let totalFeeCost = 0;
+  Object.keys(fees).forEach((fee) => { fee.push([fee, fees[fee]]); totalFeeCost += fees[fee]; });
 
-  for (let fee in fees) {
-    feeArr.push([fee, fees[fee]]);
-    totalFeeCost += fees[fee];
-  }
   const totalTaxCost = parseInt(((baseStayCost + totalFeeCost)
     * getTaxRate(taxes)
     + getFlatTax(taxes)).toFixed(), 10);
