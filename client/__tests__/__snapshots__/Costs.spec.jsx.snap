@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Price renders correctly 1`] = `
+<div>
+  <div>
+    <div
+      className="sc-bdVaJa kZAgjJ"
+    >
+      <div
+        className="sc-bwzfXH gOZtLQ"
+      >
+        $20 x 1 nights
+      </div>
+      <div
+        className="sc-bwzfXH bQEDAm"
+      >
+        $20
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div>
+    <div
+      className="sc-bdVaJa kZAgjJ"
+    >
+      <div
+        className="sc-bwzfXH gOZtLQ"
+      >
+        Fee 1
+      </div>
+      <div
+        className="sc-bwzfXH bQEDAm"
+      >
+        $20
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div>
+    <div
+      className="sc-bdVaJa kZAgjJ"
+    >
+      <div
+        className="sc-bwzfXH gOZtLQ"
+      >
+        Occupancy Taxes and Fees
+      </div>
+      <div
+        className="sc-bwzfXH bQEDAm"
+      >
+        $1000
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div>
+    <div
+      className="sc-bdVaJa kZAgjJ"
+    >
+      <div
+        className="sc-bwzfXH gOZtLQ"
+      >
+        Total
+      </div>
+      <div
+        className="totalBookingCost sc-bwzfXH bQEDAm"
+      >
+        $1040
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;

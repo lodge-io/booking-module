@@ -285,7 +285,7 @@ exports[`Calendar renders correctly 1`] = `
           >
             21
           </div>
-        </td>
+        </td> 
         <td
           className="sc-bwzfXH cDziqG"
         >

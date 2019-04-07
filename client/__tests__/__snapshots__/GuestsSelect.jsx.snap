@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GuestSelect renders correctly 1`] = `
+<div
+  className="sc-bdVaJa hyCpos"
+>
+  <div
+    className="sc-bwzfXH jIEWCi"
+  >
+    <div>
+      Adults
+    </div>
+    <div />
+    <div>
+      <button
+        onClick={[Function]}
+      >
+        -
+      </button>
+      1
+      <button
+        onClick={[Function]}
+      >
+        +
+      </button>
+    </div>
+  </div>
+  <div
+    className="sc-bwzfXH jIEWCi"
+  >
+    <div>
+      Children
+    </div>
+    <div />
+    <div>
+      <button
+        onClick={[Function]}
+      >
+        -
+      </button>
+      0
+      <button
+        onClick={[Function]}
+      >
+        +
+      </button>
+    </div>
+  </div>
+  <div
+    className="sc-bwzfXH jIEWCi"
+  >
+    <div>
+      Infants
+    </div>
+    <div />
+    <div>
+      <button
+        onClick={[Function]}
+      >
+        -
+      </button>
+      3
+      <button
+        onClick={[Function]}
+      >
+        +
+      </button>
+    </div>
+  </div>
+  <div
+    onClick={[Function]}
+  >
+    close
+  </div>
+</div>
+`;
