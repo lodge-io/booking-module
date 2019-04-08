@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
-import { create } from 'domain';
-
 
 const utcMoment = moment.utc;
 
@@ -17,7 +15,7 @@ function getCurrYear() {
   return new Date(Date.now()).getFullYear();
 }
 
-function getLastMonthDate(month, year = 2019) {
+function getLastMonthDate(month, year) {
   return (new Date(year, month + 1, 0)).getDate();
 }
 
@@ -25,7 +23,7 @@ function numToMonth(num) {
   return MONTH_NAMES[num];
 }
 
-function getMonthStartWeekday(month, year = 2019) {
+function getMonthStartWeekday(month, year) {
   return new Date(year, month).getDay();
 }
 
@@ -37,18 +35,25 @@ function createDate(year, month, day) {
 }
 
 const CalendarBox = styled.div`
-  color: palevioletred;
   padding: 0.25em 0.25em;
   text-align: center;
 `;
 const TableD = styled.td`
-  border: 1px solid green;
-  width: 42px; height:42px; 
-  background: pink;
+  border: 1px solid #EBEBEB;
+  width: 42px; height:42px;
+  background-color: white;  
   &:hover{
-    background-color: blue;
+    background-color: #00A699;
   }
 `;
+TableD.displayName = 'TableD';
+
+const TableDDisabled = styled.td`
+  border: 1px solid #EBEBEB;
+  width: 42px; height:42px;
+  color: #D8D8D8;
+`;
+TableDDisabled.displayName = 'TableDDisabled';
 
 const ArrowSpan = styled.span`
   flex-grow: 1;
@@ -66,10 +71,8 @@ const MonthSpan = styled.span`
 
 const Head = styled.th`
   width: 14%;
-  background-color:green;
 `;
 const Table = styled.table`
-  background-color:orange;
   width:100%;
   padding:0px;
   border-collapse: collapse;
@@ -79,17 +82,47 @@ const TopRow = styled.span`
   flex-direction: row;
 `;
 const TableHolder = styled.div`
-  background-color:blue;
   width: 300px;
   padding: 20px;
   border-radius: 3px;
-
+  user-select: none;
 `;
+
+const CalendarDate = ({ year, month, date, available, inputDate, selecting }) => {
+  if (available) {
+    return (
+      <TableD key={date}>
+        <CalendarBox
+          key={date}
+          className="clickableDate"
+          onClick={() => {
+            inputDate(createDate(year, month, date));
+          }
+          }
+        >
+          {date}
+        </CalendarBox>
+      </TableD>
+    );
+  }
+
+  return (
+    <TableDDisabled key={date}>
+      <CalendarBox
+        key={date}
+      >
+        {date}
+      </CalendarBox>
+    </TableDDisabled>
+  );
+
+};
 
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { month: getCurrMonth(), year: getCurrYear() };
+    this.isValidDate = this.isValidDate.bind(this);
   }
 
   nextMonth() {
@@ -118,10 +151,31 @@ class Calendar extends React.Component {
     });
   }
 
-
+  isValidDate(year, month, day) {
+    const { bookings, selecting } = this.props;
+    const date = utcMoment(`${year}/${month + 1}/${day}`);
+    const now = utcMoment().startOf('day');
+    if (date - now < 0) {
+      return false;
+    }
+    if (bookings.length === 0) {
+      return true;
+    }
+    let i = 0;
+    if (selecting === 0) {
+      while (i < bookings.length && bookings[i].endDate.diff(date) <= 0) { i += 1; }
+      if (i === bookings.length) { return true; }
+      if (bookings[i].startDate <= date) { return false; }
+    } else {
+      while (i < bookings.length && bookings[i].endDate.diff(date) < 0) { i += 1; }
+      if (i === bookings.length) { return true; }
+      if (bookings[i].startDate < date) { return false; }
+    }
+    return true;
+  }
 
   render() {
-    const { year, month, hovered } = this.state;
+    const { year, month } = this.state;
     const { inputDate } = this.props;
     const monthName = numToMonth(month);
     let date = 1;
@@ -139,20 +193,13 @@ class Calendar extends React.Component {
         } else {
           const myDate = date;
           week.push(
-            <TableD key={myDate}>
-              <CalendarBox
-                key={myDate}
-                className="a-date"
-                onMouseOver={() => console.log(myDate)}
-                onFocus={() => console.log(myDate)}
-                onClick={() => {
-                  inputDate(createDate(year, month, myDate));
-                }
-                }
-              >
-                {myDate}
-              </CalendarBox>
-            </TableD>,
+            <CalendarDate
+              available={(this.isValidDate(year, month, myDate))}
+              year={year}
+              month={month}
+              date={myDate}
+              inputDate={inputDate}
+            />,
           );
           date += 1;
         }

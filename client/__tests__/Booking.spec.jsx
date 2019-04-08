@@ -164,43 +164,57 @@ describe('Booking component', () => {
     expect(wrapper.state().selecting).toBe(1);
   });
 
-  xit('should close calendar and show price calc after a valid range has been selected', () => {
-    const wrapper = shallow(<Booking listing={basicListing()} />);
-    const start = dateFromNow(3);
-    const end = dateFromNow(6);
+  it('should show loading before listing is loaded and load failed', () => {
+    window.fetch = () => new Promise((a, b) => { b(); });
 
-    clickOnStartDateField(wrapper);
-    wrapper.instance().inputDate(start);
-    wrapper.instance().inputDate(end);
-    expect(wrapper.state().calOpen).toBeFalsy();
-    expect(wrapper.state().showCost).toBeTruthy();
-    expect(wrapper.find('.totalBookingCost').contains(360)).toBeTruthy();
+    const wrapper = shallow(<Booking />);
+    expect(wrapper.state().listing).toBeFalsy();
+    return new Promise((accept, reject) => {
+      setTimeout(() => {
+        expect(wrapper.state().loadFailed).toBeTruthy();
+        accept();
+      }, 100);
+    });
   });
 
-  xit('should correctly calculate price given fees and taxes', () => {
-    const listing = basicListing();
-    listing.fees = { 'Cleaning Fee': 20 };
-    listing.taxes = [{ name: 'Flat Tax', type: 'flat', amount: 30 },
-      { name: 'Percent Tax', type: 'percent', rate: 0.0815 }];
+  it('should restrict guest counts to valid amounts', () => {
+    const wrapper = shallow(<Booking listing={basicListing()} />);
+    wrapper.instance().setGuestCount('adults', 0);
+    expect(wrapper.state().guests.adults).toBe(1);
+    wrapper.instance().setGuestCount('children', -1);
+    expect(wrapper.state().guests.children).toBe(0);
+    wrapper.instance().setGuestCount('infants', -1);
+    expect(wrapper.state().guests.infants).toBe(0);
 
-    const wrapper = shallow(<Booking listing={listing} />);
-    const startDay = 3;
-    const endDay = 6;
-    const start = dateFromNow(startDay);
-    const end = dateFromNow(endDay);
+    wrapper.instance().setGuestCount('adults', 17);
+    expect(wrapper.state().guests.adults).toBe(16);
+    wrapper.instance().setGuestCount('children', 10);
+    expect(wrapper.state().guests.children).toBe(0);
 
-    clickOnStartDateField(wrapper);
-    wrapper.instance().inputDate(start);
-    wrapper.instance().inputDate(end);
-    expect(wrapper.state().calOpen).toBeFalsy();
-    expect(wrapper.state().showCost).toBeTruthy();
-    const total = (
-      (endDay - startDay) * listing.price + listing.fees['Cleaning Fee']
-    )
-    * (1 + listing.taxes[1].rate)
-    + listing.taxes[0].amount;
+    wrapper.instance().setGuestCount('adults', 5);
+    // console.log(wrapper.state().guests());
+    wrapper.instance().setGuestCount('children', 5);
+    console.log(wrapper.state().guests);
+    expect(wrapper.state().guests.adults).toBe(5);
+    expect(wrapper.state().guests.children).toBe(5);
 
-    expect(wrapper.find('.totalBookingCost').contains(total)).toBeTruthy();
+    wrapper.instance().setGuestCount('infants', 10);
+    expect(wrapper.state().guests.infants).toBe(5);
+  });
+
+  it('should be able to toggle and close guest select', () => {
+    const wrapper = shallow(<Booking listing={basicListing()} />);
+    wrapper.instance().toggleGuestSelect();
+    expect(wrapper.state().guestSelectOpen).toBeTruthy();
+    wrapper.instance().toggleGuestSelect();
+    expect(wrapper.state().guestSelectOpen).toBeFalsy();
+    wrapper.instance().closeGuestSelect();
+    expect(wrapper.state().guestSelectOpen).toBeFalsy();
+    wrapper.instance().toggleGuestSelect();
+    wrapper.instance().closeGuestSelect();
+    expect(wrapper.state().guestSelectOpen).toBeFalsy();
+
+
   });
 
   xit('on booking button press with invalid range, should open calendar with first date selecting', () => {

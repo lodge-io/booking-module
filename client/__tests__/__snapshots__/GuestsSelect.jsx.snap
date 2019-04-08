@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GuestSelect renders correctly 1`] = `
+<div
+  className="sc-bdVaJa hyCpos"
+>
+  <div
+    className="sc-bwzfXH iHIBJT"
+  >
+    <div
+      className="sc-htpNat fIvgnp"
+    >
+      Adults
+    </div>
+    <div
+      className="sc-htpNat fIvgnp"
+    />
+    <div
+      className="sc-htpNat fIvgnp"
+    >
+      <button
+        className="sc-bxivhb bGzvjj"
+        onClick={[Function]}
+        type="button"
+      >
+        -
+      </button>
+        1  
+      <button
+        className="sc-bxivhb bGzvjj"
+        onClick={[Function]}
+        type="button"
+      >
+        +
+      </button>
+    </div>
+  </div>
+  <div
+    className="sc-bwzfXH iHIBJT"
+  >
+    <div
+      className="sc-htpNat fIvgnp"
+    >
+      Children
+    </div>
+    <div
+      className="sc-htpNat fIvgnp"
+    />
+    <div
+      className="sc-htpNat fIvgnp"
+    >
+      <button
+        className="sc-bxivhb bGzvjj"
+        onClick={[Function]}
+        type="button"
+      >
+        -
+      </button>
+        0  
+      <button
+        className="sc-bxivhb bGzvjj"
+        onClick={[Function]}
+        type="button"
+      >
+        +
+      </button>
+    </div>
+  </div>
+  <div
+    className="sc-bwzfXH iHIBJT"
+  >
+    <div
+      className="sc-htpNat fIvgnp"
+    >
+      Infants
+    </div>
+    <div
+      className="sc-htpNat fIvgnp"
+    />
+    <div
+      className="sc-htpNat fIvgnp"
+    >
+      <button
+        className="sc-bxivhb bGzvjj"
+        onClick={[Function]}
+        type="button"
+      >
+        -
+      </button>
+        3  
+      <button
+        className="sc-bxivhb bGzvjj"
+        onClick={[Function]}
+        type="button"
+      >
+        +
+      </button>
+    </div>
+  </div>
+  <div
+    className="sc-ifAKCX fpwRZh"
+    onClick={[Function]}
+  >
+    close
+  </div>
+</div>
+`;

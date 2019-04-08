@@ -2,68 +2,68 @@
 
 exports[`Calendar renders correctly 1`] = `
 <div
-  className="sc-gzVnrw dStQk"
+  className="sc-htoDjs ixOviw"
 >
   <span
-    className="sc-bZQynM gxEjMp"
+    className="sc-gzVnrw jKdxIN"
   >
     <span
-      className="lastMonth sc-htpNat kwiLFa"
+      className="lastMonth sc-bxivhb dwoOdW"
       onClick={[Function]}
     >
       &lt;
     </span>
     <span
-      className="calTitleSpan sc-bxivhb jXJJxg"
+      className="calTitleSpan sc-ifAKCX djMrCb"
     >
       April
        
       2019
     </span>
     <span
-      className="nextMonth sc-htpNat kwiLFa"
+      className="nextMonth sc-bxivhb dwoOdW"
       onClick={[Function]}
     >
       &gt;
     </span>
   </span>
   <table
-    className="sc-EHOje hhiHiM"
+    className="sc-bZQynM fOTTne"
   >
     <tbody>
       <tr>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           Su
         </th>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           Mo
         </th>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           Tu
         </th>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           We
         </th>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           Th
         </th>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           Fr
         </th>
         <th
-          className="sc-ifAKCX cQiRZG"
+          className="sc-EHOje itbzhn"
         >
           Sa
         </th>
@@ -71,73 +71,55 @@ exports[`Calendar renders correctly 1`] = `
       <tr>
         <td />
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
+            className="sc-bdVaJa faROED"
           >
             1
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
+            className="sc-bdVaJa faROED"
           >
             2
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
+            className="sc-bdVaJa faROED"
           >
             3
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
+            className="sc-bdVaJa faROED"
           >
             4
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
+            className="sc-bdVaJa faROED"
           >
             5
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
+            className="sc-bdVaJa faROED"
           >
             6
           </div>
@@ -145,85 +127,70 @@ exports[`Calendar renders correctly 1`] = `
       </tr>
       <tr>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
+            className="sc-bdVaJa faROED"
           >
             7
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             8
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             9
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             10
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             11
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             12
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             13
           </div>
@@ -231,85 +198,71 @@ exports[`Calendar renders correctly 1`] = `
       </tr>
       <tr>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             14
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             15
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             16
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             17
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             18
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             19
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             20
           </div>
@@ -317,85 +270,71 @@ exports[`Calendar renders correctly 1`] = `
       </tr>
       <tr>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             21
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             22
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             23
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             24
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             25
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             26
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             27
           </div>
@@ -403,37 +342,31 @@ exports[`Calendar renders correctly 1`] = `
       </tr>
       <tr>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             28
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             29
           </div>
         </td>
         <td
-          className="sc-bwzfXH cDziqG"
+          className="sc-bwzfXH ivOUJN"
         >
           <div
-            className="a-date sc-bdVaJa iUxxxf"
+            className="clickableDate sc-bdVaJa faROED"
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
           >
             30
           </div>

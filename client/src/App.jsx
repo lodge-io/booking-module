@@ -13,5 +13,5 @@ const listing = {
   bookings: [],
 };
 
-ReactDOM.render(<Booking listing={listing} />,
+ReactDOM.render(<Booking id={11} />,
   document.querySelector('#app'));
