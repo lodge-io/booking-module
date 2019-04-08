@@ -79,7 +79,7 @@ class Booking extends React.Component {
   componentDidMount() {
     const { listing, id } = this.state;
     if (!listing) {
-      fetch(`/listings/${id}`)
+      fetch(`http://localhost:3000/listings/${id}`)
         .then(res => res.json())
         .then((newListing) => {
           newListing.bookings.forEach((booking) => {
@@ -211,7 +211,7 @@ class Booking extends React.Component {
       calOpen, listing, selecting, startDate, endDate, loadFailed, guestSelectOpen, guests,
     } = this.state;
     if (loadFailed) {
-      return <div>Load failed!</div>;
+      return <div>Load failed!2</div>;
     }
     if (!listing) {
       return <div>listing loading</div>;
