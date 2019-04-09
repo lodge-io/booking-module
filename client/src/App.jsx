@@ -1,5 +1,6 @@
 import Booking from './components/Booking.jsx';
 
+
 const listing = {
   id: 123,
   requirements: [],
