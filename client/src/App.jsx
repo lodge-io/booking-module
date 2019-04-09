@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Booking from './components/Booking.jsx';
-
+console.log('asdfasdf');
 const listing = {
   id: 123,
   requirements: [],
@@ -13,5 +13,5 @@ const listing = {
   bookings: [],
 };
 
-ReactDOM.render(<Booking id={11} />,
-  document.querySelector('#app'));
+ReactDOM.render(<Booking listing={listing} id={11} />,
+  document.querySelector('#booking-module'));
