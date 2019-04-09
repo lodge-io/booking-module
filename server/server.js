@@ -12,7 +12,6 @@ app.use(express.static('client/dist'));
 app.use(bodyParser.json());
 
 app.get('/listings/:listingId', (req, res) => {
-  console.log(req.params.listingId);
   db.readListing(req.params.listingId).then((a) => {
     console.log(a);
     res.end(JSON.stringify(a));
@@ -22,7 +21,6 @@ app.get('/listings/:listingId', (req, res) => {
 app.delete('/listings/:listingId', (req, res) => {
   db.deleteListing(req.params.listingId)
     .then((a) => {
-      console.log(a);
       res.end(JSON.stringify(a));
     })
     .catch((e) => {
@@ -34,7 +32,6 @@ app.delete('/listings/:listingId', (req, res) => {
 app.post('/listings', (req, res) => {
   console.log(req.body, ' is body');
   db.createListing(req.body).then((a) => {
-    console.log(a);
     res.end(a);
   });
 });
