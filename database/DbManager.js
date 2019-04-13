@@ -42,8 +42,10 @@ const listingSchema = new mongoose.Schema({
 });
 const Listing = mongoose.model('listing', listingSchema);
 
-
-const conPromise = mongoose.connect('mongodb://localhost/lodge-io', { useNewUrlParser: true })
+// console.log('beofre connect');
+const conPromise = mongoose.connect('mongodb://172.17.0.2:27017/lodge-io', { useNewUrlParser: true });
+// console.log('after connect');
+// const conPromise = mongoose.connect('mongodb://172.17.0.2:27017/docker_test');
 
 const con = mongoose.connection;
 con.on('error', console.error.bind(console, 'connection error:'));
