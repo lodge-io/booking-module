@@ -1,4 +1,6 @@
 const path = require('path');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const webpack = require('webpack');
 
 module.exports = {
   entry: path.join(__dirname, 'client/src/App.jsx'),
@@ -6,7 +8,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.join(__dirname, 'client/dist'),
   },
-  devtool: 'source-map',
+  // devtool: 'source-map',
   module: {
     rules: [
       {
@@ -18,4 +20,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [new BundleAnalyzerPlugin(),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+  ],
 };

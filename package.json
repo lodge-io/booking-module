@@ -14,7 +14,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "uglifyjs-webpack-plugin": "^2.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
@@ -32,13 +33,14 @@
     "eslint-plugin-react": "^7.12.4",
     "jest-enzyme": "^7.0.2",
     "webpack": "^4.29.6",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.0"
   },
   "scripts": {
     "test": "jest --verbose",
     "start": "nodemon ./server/server.js",
     "build": "webpack -d -w",
-    "seed": "node ./database/LoadDatabase.js"
+    "seed": "node ./database/LoadDatabaseAndClose.js"
   },
   "repository": {
     "type": "git",
