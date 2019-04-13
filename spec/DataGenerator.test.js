@@ -40,7 +40,7 @@ test('should gen taxes', () => {
   const taxChecker = (tax) => {
     expect(['flat', 'percent']).toContain(tax.type);
     if (tax.type === 'percent') {
-      expect(tax.rate).toBeGreaterThan(0);
+      expect(tax.rate).toBeGreaterThanOrEqual(0);
     } else {
       expect(tax.amount).toBeGreaterThan(0);
     }
