@@ -214,7 +214,42 @@ class Booking extends React.Component {
       return <div>Load failed!2</div>;
     }
     if (!listing) {
-      return <div>listing loading</div>;
+      return (
+      <BookingDiv theme={theme}>
+        <div>
+          ----
+          per night
+        </div>
+        <div>
+          <Review avgReview={0} numReviews={0} />
+        </div>
+        <hr />
+        <div>
+          Dates
+        </div>
+        <SelectorBox>
+          <DateSelect className="dateSelectStart" selected={selecting === 0} >
+            {startDate ? startDate.format('MM/DD/YYYY') : ''}
+          </DateSelect>
+          <MiddleArrow viewBox="0 0 24 24" focusable="false">
+            <path d="m0 12.5a.5.5 0 0 0 .5.5h21.79l-6.15 6.15a.5.5 0 1 0 .71.71l7-7v-.01a.5.5 0 0 0 .14-.35.5.5 0 0 0 -.14-.35v-.01l-7-7a .5.5 0 0 0 -.71.71l6.15 6.15h-21.79a.5.5 0 0 0 -.5.5z" fillRule="evenodd" />
+          </MiddleArrow>
+          <DateSelect className="dateSelectEnd" selected={selecting === 1} >
+            {endDate ? endDate.format('MM/DD/YYYY') : ''}
+          </DateSelect>
+        </SelectorBox>
+        <div>
+          Guests
+        </div>
+        <SelectorBox >
+          {`loading guests`}
+
+        </SelectorBox>
+        <BookButton>
+          Loading....
+        </BookButton>
+      </BookingDiv>
+      )
     }
     const { avgReview, numReviews } = listing.reviews;
     return (
