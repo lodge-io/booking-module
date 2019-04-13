@@ -1,3 +1,4 @@
+const { React } = window;
 
 const GuestSelectDiv = styled.div`
   border-radius: 2px;

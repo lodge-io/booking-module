@@ -1,6 +1,7 @@
 
 import moment from 'moment';
 
+const { React } = window;
 
 const utcMoment = moment.utc;
 

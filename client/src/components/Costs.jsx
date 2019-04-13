@@ -1,3 +1,4 @@
+const { React } = window;
 
 const Row = styled.div`
   display: flex;

@@ -1,3 +1,4 @@
+const { React } = window;
 
 const Star = styled.svg`
   height: 0.6em; 

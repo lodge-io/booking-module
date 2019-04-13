@@ -4,6 +4,8 @@ import Costs from './Costs.jsx';
 import Review from './Review.jsx';
 import GuestSelect from './GuestSelect.jsx';
 
+const { React } = window;
+
 
 const utcMoment = moment.utc;
 
