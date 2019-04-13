@@ -1,9 +1,6 @@
-import React2 from 'react';
-import styled2 from 'styled-components';
+
 import moment from 'moment';
 
-const React = window.React || React2;
-const styled = window.styled || styled2;
 
 const utcMoment = moment.utc;
 

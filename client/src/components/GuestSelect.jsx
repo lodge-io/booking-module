@@ -1,8 +1,3 @@
-import React2 from 'react';
-import styled2 from 'styled-components';
-
-const React = window.React || React2;
-const styled = window.styled || styled2;
 
 const GuestSelectDiv = styled.div`
   border-radius: 2px;

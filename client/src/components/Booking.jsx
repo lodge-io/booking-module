@@ -1,13 +1,9 @@
-import React2 from 'react';
-import styled2 from 'styled-components';
 import moment from 'moment';
 import Calendar from './Calendar.jsx';
 import Costs from './Costs.jsx';
 import Review from './Review.jsx';
 import GuestSelect from './GuestSelect.jsx';
 
-const React = window.React || React2;
-const styled = window.styled || styled2;
 
 const utcMoment = moment.utc;
 
