@@ -23,8 +23,7 @@ coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
-**/bundle.js
-**/bundle.js.map
+**/bundle.*
 
 
 # Code runner files

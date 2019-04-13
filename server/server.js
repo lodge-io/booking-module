@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const expressStaticGzip = require('express-static-gzip');
 const db = require('../database/DbManager.js');
 
 
@@ -8,7 +9,11 @@ const app = express();
 const port = 3000;
 
 app.use(cors());
-app.use(express.static('client/dist'));
+
+app.use('/', expressStaticGzip('client/dist/', {
+  enableBrotli: true,
+  orderPreference: ['br', 'gz'],
+}));
 app.use(bodyParser.json());
 
 app.get('/listings/:listingId', (req, res) => {
