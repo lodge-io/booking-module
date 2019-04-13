@@ -29,3 +29,5 @@ build/
 
 # Code runner files
 *tempCodeRunnerFile.js
+
+**.pem
