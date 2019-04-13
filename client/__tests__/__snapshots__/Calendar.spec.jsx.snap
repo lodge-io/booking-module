@@ -145,31 +145,28 @@ exports[`Calendar renders correctly 1`] = `
           </div>
         </td>
         <td
-          className="sc-bwzfXH ivOUJN"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="clickableDate sc-bdVaJa faROED"
-            onClick={[Function]}
+            className="sc-bdVaJa faROED"
           >
             9
           </div>
         </td>
         <td
-          className="sc-bwzfXH ivOUJN"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="clickableDate sc-bdVaJa faROED"
-            onClick={[Function]}
+            className="sc-bdVaJa faROED"
           >
             10
           </div>
         </td>
         <td
-          className="sc-bwzfXH ivOUJN"
+          className="sc-htpNat llddHq"
         >
           <div
-            className="clickableDate sc-bdVaJa faROED"
-            onClick={[Function]}
+            className="sc-bdVaJa faROED"
           >
             11
           </div>
