@@ -1,7 +1,7 @@
 const express = require('express');
-const db = require('../database/DbManager.js');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const db = require('../database/DbManager.js');
 
 
 const app = express();
@@ -12,10 +12,14 @@ app.use(express.static('client/dist'));
 app.use(bodyParser.json());
 
 app.get('/listings/:listingId', (req, res) => {
-  db.readListing(req.params.listingId).then((a) => {
-    console.log(a);
-    res.end(JSON.stringify(a));
-  });
+  db.readListing(req.params.listingId)
+    .then((a) => {
+      console.log('read successful, id:', req.params.listingId);
+      res.end(JSON.stringify(a));
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 });
 
 app.delete('/listings/:listingId', (req, res) => {
@@ -30,7 +34,6 @@ app.delete('/listings/:listingId', (req, res) => {
 });
 
 app.post('/listings', (req, res) => {
-  console.log(req.body, ' is body');
   db.createListing(req.body).then((a) => {
     res.end(a);
   });
