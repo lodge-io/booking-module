@@ -12,7 +12,7 @@ const styled = window.styled || styled2;
 const utcMoment = moment.utc;
 
 const BookingDiv = styled.div`
-  width:330px;
+  width:${props => props.theme.width}px;
   border:1px solid black;
   padding:24px;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
@@ -57,7 +57,7 @@ const BookButton = styled.button`
 class Booking extends React.Component {
   constructor(props) {
     super(props);
-    const { listing, id } = this.props;
+    const { listing, id, width } = this.props;
     // invoke api call to get listing data
     this.state = {
       listing: listing || null,
@@ -69,6 +69,7 @@ class Booking extends React.Component {
       calOpen: false,
       guestSelectOpen: false,
       guests: { adults: 1, children: 0, infants: 0 },
+      theme: { width },
 
     };
     this.handleStartDateClick = this.handleStartDateClick.bind(this);
@@ -82,7 +83,7 @@ class Booking extends React.Component {
   componentDidMount() {
     const { listing, id } = this.state;
     if (!listing) {
-      fetch(`http://localhost:3000/listings/${id}`)
+      fetch(`/listings/${id}`)
         .then(res => res.json())
         .then((newListing) => {
           newListing.bookings.forEach((booking) => {
@@ -211,7 +212,7 @@ class Booking extends React.Component {
 
   render() {
     const {
-      calOpen, listing, selecting, startDate, endDate, loadFailed, guestSelectOpen, guests,
+      calOpen, listing, selecting, startDate, endDate, loadFailed, guestSelectOpen, guests, theme,
     } = this.state;
     if (loadFailed) {
       return <div>Load failed!2</div>;
@@ -221,7 +222,7 @@ class Booking extends React.Component {
     }
     const { avgReview, numReviews } = listing.reviews;
     return (
-      <BookingDiv>
+      <BookingDiv theme={theme}>
 
         <div>
           $
