@@ -1,11 +1,11 @@
 const manager = require('../database/DbManager.js');
 const gen = require('../database/DataGenerator.js');
+const load = require('../database/LoadDatabaseFn.js');
 
-beforeAll((next) => {
-  return manager.conPromse.then(() => {
-    return manager.seedDatabase().then(() => next());
-  });
-});
+
+beforeAll(next => (
+  load().then(() => next())
+));
 
 test('should load data from database', () => {
   expect.assertions(1);
