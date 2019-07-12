@@ -8,17 +8,11 @@
   
 ## Table of Contents
 
-1. [Related Projects](#Related%20Projects)
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
 1. [Screenshots](#screenshots)
-
-## Related Projects
-
-  - https://github.com/lodge-io/image-gallery-module 
-  - https://github.com/lodge-io/reviews-module
-  - https://github.com/lodge-io/description-module
+1. [Related Projects](#Related-Projects)
 
 ## Usage
 
@@ -46,3 +40,10 @@ npm install
 ![Booking Module step 2](screenshots/BookingModule2.png)
 ---
 ![Booking Module step 3](screenshots/BookingModule3.png)
+
+
+## Related-Projects
+
+  - https://github.com/lodge-io/image-gallery-module 
+  - https://github.com/lodge-io/reviews-module
+  - https://github.com/lodge-io/description-module
