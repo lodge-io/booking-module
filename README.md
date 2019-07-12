@@ -36,5 +36,7 @@ npm install
 ```
 ## Screenshots
 ![Booking Module step 1](screenshots/BookingModule1.png)
+---
 ![Booking Module step 2](screenshots/BookingModule2.png)
+---
 ![Booking Module step 3](screenshots/BookingModule3.png)
