@@ -5,8 +5,8 @@
 ## Table of Contents
 
 1. [Screenshots](#screenshots)
-1. [Development](#development)
-1. [Screenshots](#screenshots)
+1. [Technologies](#technologies)
+1. [Setup](#setup)
 1. [Related Projects](#Related-Projects)
 
 
