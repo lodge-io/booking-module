@@ -2,42 +2,14 @@
 
 > Module which allows user to view open dates for a property, input and start a booking. 
 
-![Booking Module step 3](screenshots/BookingModule3.png)
-
-
-  
 ## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
+1. [Screenshots](#screenshots)
 1. [Development](#development)
 1. [Screenshots](#screenshots)
 1. [Related Projects](#Related-Projects)
 
-## Usage
 
-> Clone the module
-> npm install
-> npm run seed
-> npm run build
-> npm run start
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 8.15.1
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
-```
 ## Screenshots
 ![Booking Module step 1](screenshots/BookingModule1.png)
 ---
@@ -45,6 +17,17 @@ npm install
 ---
 ![Booking Module step 3](screenshots/BookingModule3.png)
 
+## Development
+
+### Setup
+
+Clone the repository
+```sh
+> npm install
+> npm run seed
+> npm run build
+> npm run start
+```
 
 ## Related-Projects
 
