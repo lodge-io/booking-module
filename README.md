@@ -16,7 +16,11 @@
 
 ## Usage
 
-> Some usage instructions
+> Clone the module
+> npm install
+> npm run seed
+> npm run build
+> npm run start
 
 ## Requirements
 
