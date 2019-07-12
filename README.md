@@ -8,7 +8,7 @@
   
 ## Table of Contents
 
-1. [Related Projects](#related projects)
+1. [Related Projects](#Related%20Projects)
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
