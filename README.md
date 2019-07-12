@@ -4,18 +4,21 @@
 
 ![Booking Module step 3](screenshots/BookingModule3.png)
 
+
+  
+## Table of Contents
+
+1. [Related Projects](#related projects)
+1. [Usage](#Usage)
+1. [Requirements](#requirements)
+1. [Development](#development)
+1. [Screenshots](#screenshots)
+
 ## Related Projects
 
   - https://github.com/lodge-io/image-gallery-module 
   - https://github.com/lodge-io/reviews-module
   - https://github.com/lodge-io/description-module
-  
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-1. [Screenshots](#screenshots)
 
 ## Usage
 
