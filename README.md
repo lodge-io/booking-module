@@ -2,6 +2,8 @@
 
 > Module which allows user to view open dates for a property, input and start a booking. 
 
+![Booking Module step 3](screenshots/BookingModule3.png)
+
 ## Related Projects
 
   - https://github.com/lodge-io/image-gallery-module 
