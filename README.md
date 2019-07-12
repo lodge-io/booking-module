@@ -1,6 +1,6 @@
 # Booking Module
 
-> Module which allows user to view open dates for a property, input and start a booking. 
+> Module which allows user to view open dates for a property and start a booking. 
 
 ## Table of Contents
 
